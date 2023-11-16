@@ -1,42 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Pronia.DAL;
 using Pronia.Models;
+using Pronia.ViewModels;
 
 namespace Pronia.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AppDbContext _context;
+        public HomeController(AppDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            List<Product> products = new List<Product> {
-                new Product
-                {
-                    Id = 1,
-                    Name = "American Marigold",
-                    Price = 23.45m,
-                    Image = "1-2-270x300.jpg"
+            List<Slider> sliders = _context.Sliders.OrderBy(s => s.Order).ToList();
+            List<Product> products = _context.Products.OrderByDescending(s => s.Id).ToList();
 
-                },
-                new Product
-                {
-                    Id = 2,
-                    Name = "Black Eyed Susan",
-                    Price = 25.45m,
-                    Image = "1-3-270x300.jpg"
-
-                },  
-                new Product
-                {
-                    Id = 3,
-                    Name = "Bleeding Heart",
-                    Price = 30.45m,
-                    Image = "1-4-270x300.jpg"
-
-                },
-
-
-
+            HomeVM homeVM = new HomeVM
+            {
+                Sliders=sliders,
+                Products=products,
+                NewProducts = products.Take(8).ToList(),
             };
-            return View(products);
+            return View(homeVM);
         }
 
         public IActionResult About()
