@@ -1,4 +1,5 @@
-﻿
+﻿@using Pronia.Utilities.Enums;
+
 
 @model HomeVM
 
@@ -13,7 +14,7 @@
             {
                 <div class="swiper-slide animation-style-01">
                     <div class="slide-inner style-1 bg-height"
-                         data-bg-image="assets/images/slider/bg/1-1.jpg">
+                         data-bg-image="../../../assets/images/slider/bg/1-1.jpg">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 order-2 order-lg-1 align-self-center">
@@ -155,12 +156,12 @@
                                 <div class="col-xl-3 col-md-4 col-sm-6">
                                     <div class="product-item">
                                         <div class="product-img">
-                                            <a href="shop.html">
+                                            <a href="/product/details/@product.Id">
                                                 <img class="primary-img"
-                                                     src="~/assets/images/website-images//@product.ImageURL"
+                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Main).ImageURL"
                                                      alt="Product Images" />
                                                 <img class="secondary-img"
-                                                     src="~/assets/images/website-images//1-2-270x300.jpg"
+                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Hover).ImageURL"
                                                      alt="Product Images" />
                                             </a>
                                             <div class="product-add-action">
@@ -789,12 +790,12 @@
                                 <div class="col-xl-3 col-md-4 col-sm-6">
                                     <div class="product-item">
                                         <div class="product-img">
-                                            <a href="shop.html">
+                                            <a href="/product/details/@product.Id">
                                                 <img class="primary-img"
-                                                     src="~/assets/images/website-images//@product.ImageURL"
+                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Main).ImageURL"
                                                      alt="Product Images" />
                                                 <img class="secondary-img"
-                                                     src="~/assets/images/website-images//1-2-270x300.jpg"
+                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Hover).ImageURL"
                                                      alt="Product Images" />
                                             </a>
                                             <div class="product-add-action">
