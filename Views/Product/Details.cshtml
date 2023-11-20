@@ -1,6 +1,10 @@
 ﻿@using Pronia.Utilities.Enums;
 @model ProductVM;
 
+@{
+    int count = 0;
+}
+
 <!-- Begin Main Content Area  -->
 <main class="main-content">
     <div class="breadcrumb-area breadcrumb-height"
@@ -96,18 +100,20 @@
                         <div class="selector-wrap color-option">
                             <span class="selector-title border-bottom-0">Color</span>
                             <select class="nice-select wide border-bottom-0 rounded-0">
-                                <option value="default">Black & White</option>
-                                <option value="blue">Blue</option>
-                                <option value="green">Green</option>
-                                <option value="red">Red</option>
+                                @foreach (ProductColor pc in Model.Product.ProductColors)
+                                {
+                                <option>@pc.Color.Name</option>
+                                    
+                                }
                             </select>
                         </div>
                         <div class="selector-wrap size-option">
                             <span class="selector-title">Size</span>
                             <select class="nice-select wide rounded-0">
-                                <option value="medium">Medium Size & Poot</option>
-                                <option value="large">Large Size With Poot</option>
-                                <option value="small">Small Size With Poot</option>
+                                @foreach (ProductSize ps in Model.Product.ProductSizes)
+                                {
+                                <option>@ps.Size.Type</option>
+                                }
                             </select>
                         </div>
                         <p class="short-desc">
@@ -195,7 +201,12 @@
                             <span class="title">Tags :</span>
                             <ul>
                                 <li>
-                                    <a href="#">Furniture</a>
+                                    @foreach (ProductTag pt in Model.Product.ProductTags)
+                                    {
+                                        count++;
+                                        <a href="#">@pt.Tag.Name @(Model.Product.ProductTags.Count != count ? "," : "") </a>
+                                        
+                                    }
                                 </li>
                             </ul>
                         </div>
@@ -517,11 +528,10 @@
                                         </div>
                                         <div class="rating-box">
                                             <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
+                                                @for (int i = simProduct.Rating; i > 0; i--)
+                                                {
+                                                    <li><i class="fa fa-star"></i></li>
+                                                }
                                             </ul>
                                         </div>
                                     </div>

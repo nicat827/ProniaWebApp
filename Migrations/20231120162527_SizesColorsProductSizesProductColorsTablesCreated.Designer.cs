@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pronia.DAL;
 
@@ -10,9 +11,11 @@ using Pronia.DAL;
 namespace Pronia.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231120162527_SizesColorsProductSizesProductColorsTablesCreated")]
+    partial class SizesColorsProductSizesProductColorsTablesCreated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,29 +176,6 @@ namespace Pronia.Migrations
                     b.ToTable("ProductSizes");
                 });
 
-            modelBuilder.Entity("Pronia.Models.ProductTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("ProductTags");
-                });
-
             modelBuilder.Entity("Pronia.Models.Size", b =>
                 {
                     b.Property<int>("Id")
@@ -245,23 +225,6 @@ namespace Pronia.Migrations
                     b.ToTable("Sliders");
                 });
 
-            modelBuilder.Entity("Pronia.Models.Tag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tags");
-                });
-
             modelBuilder.Entity("Pronia.Models.Product", b =>
                 {
                     b.HasOne("Pronia.Models.Category", "Category")
@@ -282,7 +245,7 @@ namespace Pronia.Migrations
                         .IsRequired();
 
                     b.HasOne("Pronia.Models.Product", "Product")
-                        .WithMany("ProductColors")
+                        .WithMany("Colors")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -306,7 +269,7 @@ namespace Pronia.Migrations
             modelBuilder.Entity("Pronia.Models.ProductSize", b =>
                 {
                     b.HasOne("Pronia.Models.Product", "Product")
-                        .WithMany("ProductSizes")
+                        .WithMany("Sizes")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -322,25 +285,6 @@ namespace Pronia.Migrations
                     b.Navigation("Size");
                 });
 
-            modelBuilder.Entity("Pronia.Models.ProductTag", b =>
-                {
-                    b.HasOne("Pronia.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Pronia.Models.Tag", "Tag")
-                        .WithMany()
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("Tag");
-                });
-
             modelBuilder.Entity("Pronia.Models.Category", b =>
                 {
                     b.Navigation("Products");
@@ -353,11 +297,11 @@ namespace Pronia.Migrations
 
             modelBuilder.Entity("Pronia.Models.Product", b =>
                 {
+                    b.Navigation("Colors");
+
                     b.Navigation("Images");
 
-                    b.Navigation("ProductColors");
-
-                    b.Navigation("ProductSizes");
+                    b.Navigation("Sizes");
                 });
 
             modelBuilder.Entity("Pronia.Models.Size", b =>

@@ -210,13 +210,11 @@
                                                 <span class="new-price">$@product.Price</span>
                                             </div>
                                             <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
+                                              <ul>
+                                                    @for (int i = product.Rating; i > 0; i--) {
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    }
+                                               </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -845,11 +843,10 @@
                                             </div>
                                             <div class="rating-box">
                                                 <ul>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
+                                                    @for (int i = product.Rating; i > 0; i--)
+                                                    {
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    }
                                                 </ul>
                                             </div>
                                         </div>

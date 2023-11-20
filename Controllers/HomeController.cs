@@ -20,7 +20,6 @@ namespace Pronia.Controllers
             List<Slider> sliders = _context.Sliders.OrderBy(s => s.Order).ToList();
             List<Product> products = _context.Products.OrderByDescending(s => s.Id).Include(p => p.Images).ToList();
 
-
             HomeVM homeVM = new HomeVM
             {
                 Sliders=sliders,
