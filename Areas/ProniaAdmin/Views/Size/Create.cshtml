@@ -1,0 +1,22 @@
+﻿@model Size
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Size:</h4>
+
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label asp-for="Type">Name</label>
+                        <input asp-for="Type" class="form-control" placeholder="Size Type">
+                        <span class="text-danger" asp-validation-for="Type"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Create</button>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
