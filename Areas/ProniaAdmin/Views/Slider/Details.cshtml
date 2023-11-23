@@ -1,0 +1,18 @@
+﻿@model Slider
+<div class="d-flex justify-content-around align-items-center">
+    <img style="width:200px; height:200px" src="~/uploads/slider//@Model.ImageURL" />
+
+    <h1 style="text-align:center;">Id: @Model.Id | Title: @Model.Title</h1>
+</div>
+
+<hr />
+
+<h2>SubTitle</h2>
+<p>@Model.SubTitle</p>
+<hr />
+<h2>Order: @Model.Order</h2>
+
+<hr />
+
+<h2>Description:</h2>
+<p>@Model.Description</p>

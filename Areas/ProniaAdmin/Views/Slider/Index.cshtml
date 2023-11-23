@@ -1,6 +1,7 @@
-﻿@model List<Tag>
+﻿@model List<Slider>
 @{
     int count = 0;
+
 }
 
 
@@ -12,8 +13,8 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Tags Table</h4>
-                <a asp-controller="tag" asp-action="create" class="btn btn-success">Create Tag</a>
+                <h4 class="card-title">Sliders Table</h4>
+                <a asp-controller="slider" asp-action="create" class="btn btn-success">Create Slider</a>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -22,10 +23,13 @@
                                     No
                                 </th>
                                 <th>
-                                    Name
+                                    Image
                                 </th>
                                 <th>
-                                    Products Count
+                                    Title
+                                </th>
+                                <th>
+                                    Order
                                 </th>
                                 <th>
                                     Settings
@@ -33,7 +37,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (Tag tag in Model)
+                            @foreach (Slider slider in @Model)
                             {
                                 count++;
                                 <tr>
@@ -41,17 +45,19 @@
                                     <td>
                                         @count
                                     </td>
-
                                     <td>
-                                        @tag.Name
+                                        <img style="width:100px; height:100px" src="~/uploads/slider/@slider.ImageURL" />
                                     </td>
                                     <td>
-                                        @tag.ProductTags.Count
+                                        @slider.Title
                                     </td>
                                     <td>
-                                        <a asp-controller="tag" asp-action="update" asp-route-id="@tag.Id" class="btn btn-warning btn-info"><i class="mdi mdi-pencil"></i></a>
-                                        <a asp-controller="tag" asp-action="delete" asp-route-id="@tag.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
-                                        <a asp-controller="tag" asp-action="details" class="btn btn-primary btn-info"><i class="mdi mdi-open-in-new"></i></a>
+                                        @slider.Order
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-warning btn-info"><i class="mdi mdi-pencil"></i></a>
+                                        <a class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                        <a asp-controller="slider" asp-action="details" asp-route-id="@slider.Id" class="btn btn-primary btn-info"><i class="mdi mdi-open-in-new"></i></a>
                                     </td>
                                 </tr>
                             }
