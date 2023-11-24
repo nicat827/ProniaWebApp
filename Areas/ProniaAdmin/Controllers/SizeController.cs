@@ -51,5 +51,64 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             TempData["success"] = "Size succesfully created!";
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Update(int id)
+        {
+            if (id<= 0) return BadRequest();
+            Size size = await _context.Sizes.FirstOrDefaultAsync(s => s.Id == id);
+            if (size == null) return NotFound();
+
+            return View(size);
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Update(int id, Size newSize)
+        {
+            if (!ModelState.IsValid) return View(newSize);
+            Size size = await _context.Sizes.FirstOrDefaultAsync(s => s.Id == id);
+            if (size == null) return NotFound();
+
+            bool isExist = await _context.Sizes.AnyAsync(s => s.Id != id && s.Type == newSize.Type);
+            if (isExist)
+            {
+                ModelState.AddModelError("Type", "This size already exist!");
+                return View(size);
+            }
+
+            size.Type = newSize.Type.Trim();
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+
+
+
+
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            if (id <= 0) return BadRequest();
+            Size size = await _context.Sizes.FirstOrDefaultAsync(c => c.Id == id);
+            if (size == null) return NotFound();
+            _context.Sizes.Remove(size);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        public async Task<IActionResult> Details(int id)
+        {
+            if (id <= 0) return BadRequest();
+            Size size = await _context.Sizes
+                .Include(s => s.ProductSizes).ThenInclude(ps => ps.Product).ThenInclude(p => p.Images)
+                .FirstOrDefaultAsync(s => s.Id == id);
+            if (size == null) return NotFound();
+
+            return View(size);
+        }
+
     }
 }

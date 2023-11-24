@@ -43,5 +43,66 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             TempData["success"] = "Color succesfully created!";
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            if (id <= 0) return BadRequest();
+            Color color = await _context.Colors.FirstOrDefaultAsync(t => t.Id == id);
+            if (color == null) return NotFound();
+            _context.Colors.Remove(color);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            if (id <= 0) return BadRequest();
+
+            Color color = await _context.Colors
+                .Include(c => c.ProductColors).ThenInclude(pc => pc.Product).ThenInclude(p => p.Images)
+                .FirstOrDefaultAsync(c => c.Id == id);
+            if (color is null) return NotFound();
+            return View(color);
+
+        }
+
+
+        public async Task<IActionResult> Update(int id)
+        {
+            if (id<= 0) return BadRequest();
+
+            Color color = await _context.Colors.FirstOrDefaultAsync(c => c.Id == id);
+            if (color is null) return NotFound();
+
+            return View(color);
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Update(int id, Color newColor)
+        {
+            if (!ModelState.IsValid) return View(newColor);
+
+            Color color = await _context.Colors.FirstOrDefaultAsync(c => c.Id == id);
+            if (color is null) return NotFound();
+
+            bool isExisted = await _context.Colors.AnyAsync(p => p.Id != id && p.Name.Trim() == newColor.Name.Trim());
+            if (isExisted)
+            {
+                ModelState.AddModelError("Name", "Color with this name already exist!");
+                return View(newColor);
+            }
+
+            color.Name = newColor.Name;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+
+        }
+
+
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TKJKyGRAPhrIm8JfjEa8SCyutmOMtoqHcyYoxUadLCs=",
+  "Hash": "sbUTSbpOD9vc0iCO7DG6tklQmQ3hZVdZbWTgKzIayWQ=",
   "Source": "Pronia",
   "BasePath": "_content/Pronia",
   "Mode": "Default",
@@ -5132,40 +5132,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\slider\\1-2-524x617.png"
-    },
-    {
-      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\back.jpg",
-      "SourceId": "Pronia",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\",
-      "BasePath": "_content/Pronia",
-      "RelativePath": "uploads/slider/back.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\slider\\back.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\WhatsApp Image 2023-11-21 at 23.57.05.jpeg",
-      "SourceId": "Pronia",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\",
-      "BasePath": "_content/Pronia",
-      "RelativePath": "uploads/slider/WhatsApp Image 2023-11-21 at 23.57.05.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\slider\\WhatsApp Image 2023-11-21 at 23.57.05.jpeg"
     }
   ]
 }

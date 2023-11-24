@@ -49,9 +49,9 @@
                                         @size.ProductSizes.Count
                                     </td>
                                     <td>
-                                        <a class="btn btn-warning btn-info"><i class="mdi mdi-pencil"></i></a>
-                                        <a class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
-                                        <a class="btn btn-primary btn-info"><i class="mdi mdi-open-in-new"></i></a>
+                                        <a asp-controller="size" asp-action="update" asp-route-id="@size.Id" class="btn btn-warning btn-info"><i class="mdi mdi-pencil"></i></a>
+                                        <a asp-controller="size" asp-action="delete" asp-route-id="@size.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                        <a asp-controller="size" asp-action="details" asp-route-id="@size.Id" class="btn btn-primary btn-info"><i class="mdi mdi-open-in-new"></i></a>
                                     </td>
                                 </tr>
                             }

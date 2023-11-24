@@ -1,0 +1,86 @@
+﻿@model Size
+
+    <h1 style="text-align:center;">Id: @Model.Id | Size type: @Model.Type</h1>
+@if (Model.ProductSizes.Count > 0)
+{
+    <div class="product-item-wrap row">
+        @foreach (ProductSize productSize in Model.ProductSizes)
+        {
+            <div class="col-xl-3 col-md-4 col-sm-6 p-2">
+                <div class="product-item" d-flex justify-content-center flex-column>
+                    <div class="product-img">
+                        <a >
+                            <img class="primary-img"
+                                 src="~/assets/images/website-images//@productSize.Product.Images.Find(img => img.Type == ImageType.Main).ImageURL"
+                                 alt="Product Images" />
+                            <img class="secondary-img"
+                                 src="~/assets/images/website-images//@productSize.Product.Images.Find(img => img.Type == ImageType.Hover).ImageURL"
+                                 alt="Product Images" />
+                        </a>
+                        <div class="product-add-action">
+                            <ul>
+                                <li>
+                                    <a href="wishlist.html"
+                                       data-tippy="Add to wishlist"
+                                       data-tippy-inertia="true"
+                                       data-tippy-animation="shift-away"
+                                       data-tippy-delay="50"
+                                       data-tippy-arrow="true"
+                                       data-tippy-theme="sharpborder">
+                                        <i class="pe-7s-like"></i>
+                                    </a>
+                                </li>
+                                <li class="quuickview-btn"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#quickModal">
+                                    <a href="#"
+                                       data-tippy="Quickview"
+                                       data-tippy-inertia="true"
+                                       data-tippy-animation="shift-away"
+                                       data-tippy-delay="50"
+                                       data-tippy-arrow="true"
+                                       data-tippy-theme="sharpborder">
+                                        <i class="pe-7s-look"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="cart.html"
+                                       data-tippy="Add to cart"
+                                       data-tippy-inertia="true"
+                                       data-tippy-animation="shift-away"
+                                       data-tippy-delay="50"
+                                       data-tippy-arrow="true"
+                                       data-tippy-theme="sharpborder">
+                                        <i class="pe-7s-cart"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-content" style="background-color:white; padding-left:20px;">
+                        <a class="product-name" href="shop.html">@productSize.Product.Name</a>
+                        <div class="price-box pb-1">
+                            <span class="new-price">$@productSize.Product.Price</span>
+                        </div>
+                        <div class="rating-box">
+                            <ul>
+                                @for (int i = productSize.Product.Rating; i > 0; i--)
+                                {
+                                    <li><i class="fa fa-star"></i></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+}
+
+else
+{
+    <h1 class="text-danger" style="text-align-center">Products wasnt defined!</h1>
+}
+
