@@ -1,4 +1,4 @@
-﻿@model Slider
+﻿@model UpdateSliderVM
 
 <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
@@ -8,7 +8,7 @@
 
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                       <img  src="~/uploads/slider/@Model.ImageURL"/>
+                       <img style="width:200px; height:200px;"  src="~/uploads/slider/@Model.ImageURL"/>
                     </div>
                     <div class="form-group">
                         <input type="hidden" asp-for="ImageURL" class="form-control">

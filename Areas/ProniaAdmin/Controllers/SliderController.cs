@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Pronia.Areas.ViewModels;
 using Pronia.DAL;
 using Pronia.Models;
 using Pronia.Utilities.Enums;
@@ -51,29 +52,32 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Create(Slider slider)
+        public async Task<IActionResult> Create(CreateSliderVM sliderVM)
         {
             if (!ModelState.IsValid) return View();
 
-            if (slider.Photo is null)
-            {
-                ModelState.AddModelError("Photo", "Photo is required!");
-                return View();
-            }
 
-            if (!slider.Photo.IsValidType(FileType.Image))
+            if (!sliderVM.Photo.IsValidType(FileType.Image))
             {
                 ModelState.AddModelError("Photo", "Please make sure you choose photo!");
                 return View();
             }
 
-            if (!slider.Photo.IsValidSize(2, FileSize.Megabite))
+            if (!sliderVM.Photo.IsValidSize(2, FileSize.Megabite))
             {
                 ModelState.AddModelError("Photo", "Photo size must be less than 2MB!");
                 return View();
 
             }
-            slider.ImageURL = await slider.Photo.CreateFileAsync(_env.WebRootPath, "uploads", "slider");
+            Slider slider = new Slider
+            {
+                Title = sliderVM.Title,
+                SubTitle = sliderVM.SubTitle,
+                Description = sliderVM.Description,
+                Order = sliderVM.Order,
+
+            };
+            slider.ImageURL = await sliderVM.Photo.CreateFileAsync(_env.WebRootPath, "uploads", "slider");
 
             await _context.Sliders.AddAsync(slider);
             await _context.SaveChangesAsync();
@@ -106,49 +110,57 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             if (id <= 0) return BadRequest();
             Slider slider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == id);
             if (slider == null) return NotFound();
+            UpdateSliderVM sliderVM = new UpdateSliderVM
+            {
+                Title = slider.Title,
+                SubTitle = slider.SubTitle,
+                Description = slider.Description,
+                ImageURL = slider.ImageURL,
+                Order = slider.Order,
 
-            return View(slider);
+            };
+            return View(sliderVM);
         }
 
         [HttpPost]
 
-        public async Task<IActionResult> Update(int id, Slider newSlider)
+        public async Task<IActionResult> Update(int id, UpdateSliderVM newSliderVM)
         {
 
             if (!ModelState.IsValid)
             {
-                return View(newSlider);
+                return View(newSliderVM);
             }
 
             Slider slider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == id);
             if (slider == null) return NotFound();
 
-            if (newSlider.Photo is not  null)
+            if (newSliderVM.Photo is not  null)
             {
 
-                if (!newSlider.Photo.IsValidType(FileType.Image))
+                if (!newSliderVM.Photo.IsValidType(FileType.Image))
                 {
                     ModelState.AddModelError("Photo", "Please make sure you choose photo!");
-                    return View();
+                    return View(newSliderVM);
                 }
 
-                if (!newSlider.Photo.IsValidSize(2, FileSize.Megabite))
+                if (!newSliderVM.Photo.IsValidSize(2, FileSize.Megabite))
                 {
                     ModelState.AddModelError("Photo", "Photo size must be less than 2MB!");
-                    return View();
+                    return View(newSliderVM);
 
                 }
 
                 slider.ImageURL.DeleteFile(_env.WebRootPath, "uploads", "slider");
 
-                slider.ImageURL = await newSlider.Photo.CreateFileAsync(_env.WebRootPath, "uploads", "slider");
+                slider.ImageURL = await newSliderVM.Photo.CreateFileAsync(_env.WebRootPath, "uploads", "slider");
 
             }
 
-            slider.Title = newSlider.Title;
-            slider.Description = newSlider.Description;
-            slider.SubTitle = newSlider.SubTitle;
-            slider.Order = newSlider.Order;
+            slider.Title = newSliderVM.Title;
+            slider.Description = newSliderVM.Description;
+            slider.SubTitle = newSliderVM.SubTitle;
+            slider.Order = newSliderVM.Order;
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));

@@ -6,8 +6,6 @@ namespace Pronia.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Size cant be null!")]
-        [MaxLength(ErrorMessage = "Value cant be longer than 25!")]
         public string Type { get; set; }
 
         public List<ProductSize>? ProductSizes { get; set; }

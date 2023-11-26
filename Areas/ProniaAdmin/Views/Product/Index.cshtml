@@ -1,0 +1,75 @@
+﻿@model List<Product>
+@{
+    int count = 0;
+
+}
+
+
+<div class="row">
+    @if (TempData["success"] is not null)
+    {
+        <span class="success-span">@TempData["success"].ToString()</span>
+    }
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Products Table</h4>
+                <a asp-controller="product" asp-action="create" class="btn btn-success">Create Product</a>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    No
+                                </th>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Category
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Product product in @Model)
+                            {
+                                count++;
+                                <tr>
+
+                                    <td>
+                                        @count
+                                    </td>
+                                    <td>
+                                        <img style="width:100px; height:100px" src="~/uploads/product/@product.Images.FirstOrDefault(i => i.Type == ImageType.Main)?.ImageURL" />
+                                    </td>
+                                    <td>
+                                        @product.Name
+                                    </td>
+                                    <td>
+                                        @product.Category.Name
+                                    </td>
+                                    <td style="color:green;">
+                                        @product.Price$
+                                    </td>
+                                    <td>
+                                        <a asp-controller="product" asp-action="update" asp-route-id="@product.Id" class="btn btn-warning btn-info"><i class="mdi mdi-pencil"></i></a>
+                                        <a asp-controller="product" asp-action="delete" asp-route-id="@product.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                        <a asp-controller="product" asp-action="details" asp-route-id="@product.Id" class="btn btn-primary btn-info"><i class="mdi mdi-open-in-new"></i></a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

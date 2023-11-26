@@ -167,10 +167,10 @@
                                         <div class="product-img">
                                             <a asp-controller="product" asp-action="details" asp-route-id="@product.Id">
                                                 <img class="primary-img"
-                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Main).ImageURL"
+                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Main)?.ImageURL"
                                                      alt="Product Images" />
                                                 <img class="secondary-img"
-                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Hover).ImageURL"
+                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Hover)?.ImageURL"
                                                      alt="Product Images" />
                                             </a>
                                             <div class="product-add-action">
@@ -797,12 +797,12 @@
                                 <div class="col-xl-3 col-md-4 col-sm-6">
                                     <div class="product-item">
                                         <div class="product-img">
-                                            <a  asp-controller="product" asp-action="details" asp-route-id="@product.Id">
+                                            <a  asp-controller="product" asp-action="details" asp-route-id="@@product.Id">
                                                 <img class="primary-img"
-                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Main).ImageURL"
+                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Main)?.ImageURL"
                                                      alt="Product Images" />
                                                 <img class="secondary-img"
-                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Hover).ImageURL"
+                                                     src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Hover)?.ImageURL"
                                                      alt="Product Images" />
                                             </a>
                                             <div class="product-add-action">

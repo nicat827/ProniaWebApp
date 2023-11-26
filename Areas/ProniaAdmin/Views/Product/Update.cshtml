@@ -1,0 +1,98 @@
+﻿@model UpdateProductVM
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update Slider:</h4>
+
+                <div class="d-flex justify-content-around align-items-center mt-5">
+                    <div class="d-flex flex-column">
+                        <span style="text-align:center; margin-bottom:10px; font-size:20px;">Main Image:</span>
+                        <img style="width:160px; height:160px; border-radius:10px" src="~/uploads/product//@Model.Images.FirstOrDefault(i => i.Type == ImageType.Main)?.ImageURL" />
+                    </div>
+                    <div class="d-flex flex-column">
+                        <span style="text-align:center; margin-bottom:10px; font-size:20px;">Hover Image:</span>
+                        <img style="width:160px; height:160px; border-radius:10px" src="~/uploads/product//@Model.Images.FirstOrDefault(i => i.Type == ImageType.Hover)?.ImageURL" />
+                    </div>
+                    @if(Model.Images.Any(i => i.Type == ImageType.All))
+                    {
+                        <div class="d-flex flex-column">
+                            <span style="text-align:center; margin-bottom:10px; font-size:20px;">Others:</span>
+                            <div>
+                                @foreach (ProductImage image in Model.Images.Where(i => i.Type == ImageType.All).ToList())
+                                {
+                                    <img style="width:160px; height:160px; border-radius:10px" src="~/uploads/product//@image.ImageURL" />
+
+                                }
+                            </div>
+
+                        </div>
+                    }
+                   
+                    
+                   
+
+                </div>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label asp-for="MainPhoto">Main photo:</label>
+                        <input asp-for="MainPhoto" class="form-control" placeholder="MainPhoto">
+                        <span class="text-danger" asp-validation-for="MainPhoto"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HoverPhoto">Hover photo:</label>
+                        <input asp-for="HoverPhoto" class="form-control" placeholder="HoverPhoto">
+                        <span class="text-danger" asp-validation-for="HoverPhoto"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OthersPhoto">Additional Photos:</label>
+                        <input asp-for="OthersPhoto" class="form-control" placeholder="OthersPhoto">
+                        <span class="text-danger" asp-validation-for="OthersPhoto"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input asp-for="Name" class="form-control" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+
+
+                    <select style="cursor:pointer;padding: 5px 10px;border-radius: 5px; border-color:gray;
+                    background-color:gray; color:white;-webkit-appearance: none;
+                      -moz-appearance: none;
+                      appearance: none;"
+                            class="form-group" asp-for="CategoryId" asp-items="new SelectList(Model.Categories.Where(c => c.Id != Model.CategoryId), nameof(Category.Id), nameof(Category.Name))">
+                    </select>
+                    <span class="text-danger" asp-validation-for="CategoryId"></span>
+
+
+                    <div class="form-group">
+                        <label asp-for="Price"></label>
+                        <input asp-for="Price" class="form-control" placeholder="Price">
+                        <span class="text-danger" asp-validation-for="Price"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ShortDescription"></label>
+                        <input asp-for="ShortDescription" class="form-control" placeholder="Short description">
+                        <span class="text-danger" asp-validation-for="ShortDescription"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" placeholder="Description">
+                        <span class="text-danger" asp-validation-for="Description"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SKU"></label>
+                        <input asp-for="SKU" class="form-control" placeholder="SKU">
+                        <span class="text-danger" asp-validation-for="SKU"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Update</button>
+                    <button asp-controller="product" asp-action="index" class="btn btn-light">Cancel</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

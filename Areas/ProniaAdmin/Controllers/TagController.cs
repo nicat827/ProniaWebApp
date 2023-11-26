@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Pronia.Areas.ViewModels;
 using Pronia.DAL;
 using Pronia.Models;
 using System.Drawing;
@@ -11,7 +12,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
     public class TagController : Controller
     {
         private readonly AppDbContext _context;
-
+        
         public TagController(AppDbContext context)
         {
             _context = context;
@@ -34,20 +35,20 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Tag tag)
+        public async Task<IActionResult> Create(CreateTagVM tagVM)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            bool isExist = await _context.Tags.AnyAsync(t => t.Name == tag.Name.Trim());
+            bool isExist = await _context.Tags.AnyAsync(t => t.Name == tagVM.Name.Trim());
             if (isExist)
             {
                 ModelState.AddModelError("Name", "Tag with this name already exist!");
                 return View();
             }
-
+            Tag tag = new Tag { Name = tagVM.Name };
             await _context.Tags.AddAsync(tag);
             await _context.SaveChangesAsync();
             TempData["success"] = "Tag succesfully created!";
@@ -59,30 +60,30 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             if (id <= 0) return BadRequest();
             Tag tag = await _context.Tags.FirstOrDefaultAsync(t => t.Id == id);
             if (tag == null) return NotFound();
-
-            return View(tag);
+            UpdateTagVM tagVM = new UpdateTagVM { Name = tag.Name };
+            return View(tagVM);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(int id, Tag updatedTag)
+        public async Task<IActionResult> Update(int id, UpdateTagVM updatedTagVM)
         {
             if (!ModelState.IsValid)
             {
-                return View(updatedTag);
+                return View(updatedTagVM);
             }
             Tag tag = await _context.Tags.FirstOrDefaultAsync(t => t.Id == id);
             if (tag == null) return NotFound();
 
-            bool isExist = await _context.Tags.AnyAsync(t => t.Name == updatedTag.Name.Trim() && t.Id != id);
+            bool isExist = await _context.Tags.AnyAsync(t => t.Name == updatedTagVM.Name.Trim() && t.Id != id);
             if (isExist)
             {
                 ModelState.AddModelError("Name", "This tag already exist!");
-                return View(tag);
+                return View(updatedTagVM);
             }
 
-            if (tag.Name == updatedTag.Name) return RedirectToAction(nameof(Index));
+            if (tag.Name == updatedTagVM.Name) return RedirectToAction(nameof(Index));
 
-            tag.Name = updatedTag.Name;
+            tag.Name = updatedTagVM.Name;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

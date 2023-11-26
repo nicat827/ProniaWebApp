@@ -8,7 +8,6 @@ namespace Pronia.Models
 
         public string ImageURL { get; set; }
 
-        public string Alternative { get; set; }
 
         public ImageType Type { get; set; }
 

@@ -1,4 +1,4 @@
-﻿@model Color
+﻿@model CreateColorVM
 
 <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
@@ -14,7 +14,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary me-2">Create</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <button asp-controller="color" asp-action="index" class="btn btn-light">Cancel</button>
                 </form>
             </div>
         </div>
