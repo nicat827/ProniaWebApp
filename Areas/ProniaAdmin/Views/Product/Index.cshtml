@@ -44,6 +44,10 @@
 
                                     <td>
                                         @count
+                                        @if (!product.IsAvailable)
+                                        {
+                                            <span style="background-color:orangered; padding: 5px 10px; border-radius:6px; color:white;">Out Of stock</span>
+                                        }
                                     </td>
                                     <td>
                                         <img style="width:100px; height:100px" src="~/uploads/product/@product.Images.FirstOrDefault(i => i.Type == ImageType.Main)?.ImageURL" />

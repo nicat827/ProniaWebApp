@@ -13,6 +13,8 @@
         public string Description { get; set; }
         public string ShortDescription { get; set; }
 
+        public bool IsAvailable { get; set; }
+        
         public bool IsDeleted { get; set; }
 
         public string SKU { get; set; }
