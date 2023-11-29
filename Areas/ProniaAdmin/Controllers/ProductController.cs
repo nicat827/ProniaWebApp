@@ -94,39 +94,14 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             {
                 ModelState.AddModelError("HoverPhoto", "Photo size can't be bigger than 200kB!");
                 productVM.Categories = await GetCategoriesAsync();
+                productVM.Tags = await GetTagsAsync();
+                productVM.Colors = await GetColorsAsync();
+                productVM.Sizes = await GetSizesAsync();
                 return View(productVM);
             }
 
 
-            // validate others photo
-            if (productVM.OthersPhoto is not null)
-            {
-                foreach (IFormFile photo in productVM.OthersPhoto)
-                {
-                    if (!photo.IsValidType(FileType.Image))
-                    {
-                        ModelState.AddModelError("OthersPhoto", "Please, make sure, you uploaded an image!");
-                        productVM.Categories = await GetCategoriesAsync();
-                        productVM.Tags = await GetTagsAsync();
-                        productVM.Colors = await GetColorsAsync();
-                        productVM.Sizes = await GetSizesAsync();
-                        return View(productVM);
-                    }
-
-
-                    if (!photo.IsValidSize(200, FileSize.Kilobite))
-                    {
-                        ModelState.AddModelError("OthersPhoto", "Photo size can't be bigger than 200kB!");
-                        productVM.Categories = await GetCategoriesAsync();
-                        productVM.Tags = await GetTagsAsync();
-                        productVM.Colors = await GetColorsAsync();
-                        productVM.Sizes = await GetSizesAsync();
-                        return View(productVM);
-                    }
-
-                }
-            }
-
+         
 
 
 
@@ -158,40 +133,38 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                 }
             }
             
-            if (productVM.ColorIds is not null)
+            
+            foreach (int colorId in productVM.ColorIds)
             {
-                foreach (int colorId in productVM.ColorIds)
+                bool isExistColor = await _context.Colors.AnyAsync(t => t.Id == colorId);
+                if (!isExistColor)
                 {
-                    bool isExistColor = await _context.Colors.AnyAsync(t => t.Id == colorId);
-                    if (!isExistColor)
-                    {
-                        ModelState.AddModelError("ColorIds", "Please, make sure you choosed an exist color!");
-                        productVM.Categories = await GetCategoriesAsync();
-                        productVM.Tags = await GetTagsAsync();
-                        productVM.Colors = await GetColorsAsync();
-                        productVM.Sizes = await GetSizesAsync();
-                        return View(productVM);
+                    ModelState.AddModelError("ColorIds", "Please, make sure you choosed an exist color!");
+                    productVM.Categories = await GetCategoriesAsync();
+                    productVM.Tags = await GetTagsAsync();
+                    productVM.Colors = await GetColorsAsync();
+                    productVM.Sizes = await GetSizesAsync();
+                    return View(productVM);
 
-                    }
                 }
             }
-            if (productVM.SizeIds is not null)
+            
+           
+            foreach (int sizeId in productVM.SizeIds)
             {
-                foreach (int sizeId in productVM.SizeIds)
+                bool isExistSize = await _context.Colors.AnyAsync(t => t.Id == sizeId);
+                if (!isExistSize)
                 {
-                    bool isExistSize = await _context.Colors.AnyAsync(t => t.Id == sizeId);
-                    if (!isExistSize)
-                    {
-                        ModelState.AddModelError("SizeIds", "Please, make sure you choosed an exist size!");
-                        productVM.Categories = await GetCategoriesAsync();
-                        productVM.Tags = await GetTagsAsync();
-                        productVM.Colors = await GetColorsAsync();
-                        productVM.Sizes = await GetSizesAsync();
-                        return View(productVM);
+                    ModelState.AddModelError("SizeIds", "Please, make sure you choosed an exist size!");
+                    productVM.Categories = await GetCategoriesAsync();
+                    productVM.Tags = await GetTagsAsync();
+                    productVM.Colors = await GetColorsAsync();
+                    productVM.Sizes = await GetSizesAsync();
+                    return View(productVM);
 
-                    }
                 }
             }
+            
             
             Product product = new Product
             {
@@ -209,32 +182,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
 
             };
 
-            if (productVM.TagIds is not null)
-            {
-                foreach (int tagId in productVM.TagIds)
-                {
-                    product.ProductTags.Add(new ProductTag { TagId = tagId });
-
-                }
-            }
-            if (productVM.ColorIds is not null)
-            {
-                foreach (int colorId in productVM.ColorIds)
-                {
-                    product.ProductColors.Add(new ProductColor { ColorId = colorId });
-
-                }
-            }
-           
-            if (productVM.SizeIds is not null)
-            {
-                foreach (int sizeId in productVM.SizeIds)
-                {
-                    product.ProductSizes.Add(new ProductSize { SizeId = sizeId });
-
-                }
-            }
-           
+            // adding photos into DB
 
             product.Images.Add(new ProductImage
             {
@@ -248,11 +196,26 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                 ImageURL = await productVM.MainPhoto.CreateFileAsync(_env.WebRootPath, "uploads", "product")
             });
 
-
             if (productVM.OthersPhoto is not null)
             {
+                TempData["ErrorMessages"] = "";
+
                 foreach (IFormFile photo in productVM.OthersPhoto)
                 {
+                    if (!photo.IsValidType(FileType.Image))
+                    {
+                        TempData["ErrorMessages"] += $"<p class=\"text-danger\">Image with name {photo.FileName} wasnt created, because type is not valid!</p>";
+                        continue;
+                    }
+
+
+                    if (!photo.IsValidSize(400, FileSize.Kilobite))
+                    {
+                        TempData["ErrorMessages"] += $"<p class=\"text-danger\">Image with name {photo.FileName} wasnt created, because size must be lower than 400kB!</p>";
+
+                        continue;
+                    }
+
                     product.Images.Add(new ProductImage
                     {
                         Type = ImageType.All,
@@ -261,6 +224,11 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                 }
             }
 
+
+            // adding tags, colors, sizes into DB
+            if (productVM.TagIds is not null) productVM.TagIds.ForEach(tId => product.ProductTags.Add(new ProductTag { TagId = tId }));
+            productVM.ColorIds.ForEach(cId => product.ProductColors.Add(new ProductColor { ColorId = cId }));
+            productVM.SizeIds.ForEach(sId => product.ProductSizes.Add(new ProductSize { SizeId = sId }));
             await _context.Products.AddAsync(product);
             
             await _context.SaveChangesAsync();

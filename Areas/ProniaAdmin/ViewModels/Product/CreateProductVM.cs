@@ -19,9 +19,9 @@ namespace Pronia.Areas.ViewModels
         public string SKU { get; set; }
 
         public List<int>? TagIds { get; set; }
-        public List<int>? ColorIds { get; set; }
+        public List<int> ColorIds { get; set; }
 
-        public List<int>? SizeIds { get; set; }
+        public List<int> SizeIds { get; set; }
 
         public List<Category>? Categories { get; set; }
         public List<Tag>? Tags { get; set; }
