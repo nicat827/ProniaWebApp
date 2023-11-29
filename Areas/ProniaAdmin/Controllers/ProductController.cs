@@ -297,6 +297,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                 SKU = product.SKU,
                 Images = product.Images,
                 CategoryId = product.CategoryId,
+                IsAvilable = product.IsAvailable,
                 Categories = await GetCategoriesAsync(),
                 Tags = await GetTagsAsync(),
                 Colors = await GetColorsAsync(),
@@ -391,59 +392,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
 
             }
 
-            if (productVM.OthersPhoto is not null)
-            {
-
-                foreach (IFormFile photo in productVM.OthersPhoto)
-                {
-
-                    if (!photo.IsValidType(FileType.Image))
-                    {
-                        ModelState.AddModelError("OthersPhoto", "Please, make sure, you uploaded an image!");
-                        productVM.Categories = await GetCategoriesAsync();
-                        productVM.Images = product.Images;
-
-                        return View(productVM);
-                    }
-
-
-                    if (!photo.IsValidSize(200, FileSize.Kilobite))
-                    {
-                        ModelState.AddModelError("OthersPhoto", "Photo size can't be bigger than 200kB!");
-                        productVM.Categories = await GetCategoriesAsync();
-                        productVM.Images = product.Images;
-
-                        return View(productVM);
-                    }
-                }
-
-
-
-                List<ProductImage> othersImages = new List<ProductImage>();
-
-                foreach (IFormFile photo in productVM.OthersPhoto)
-                {
-                    ProductImage otherImage = new ProductImage
-                    {
-                        Type = ImageType.All,
-                        ImageURL = await photo.CreateFileAsync(_env.WebRootPath, "uploads", "product"),
-                        Product = product
-                    };
-
-                    othersImages.Add(otherImage);
-                }
-                
-                foreach (ProductImage oldImage in product.Images.Where(i => i.Type == ImageType.All))
-                {
-                    oldImage.ImageURL.DeleteFile(_env.WebRootPath, "uploads", "product");
-                    product.Images.Remove(oldImage);
-                    await _context.SaveChangesAsync();
-                }
-
-                product.Images.AddRange(othersImages);
-                await _context.SaveChangesAsync();
-
-            }
+         
 
 
 
@@ -578,10 +527,10 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                     Type = ImageType.Main,
                     ImageURL = await productVM.MainPhoto.CreateFileAsync(_env.WebRootPath, "uploads", "product")
                 };
-                product.Images.FirstOrDefault(i => i.Type == ImageType.Main).ImageURL.DeleteFile(_env.WebRootPath, "uploads", "product");
-
-                int idx = product.Images.IndexOf(product.Images.FirstOrDefault(i => i.Type == ImageType.Main));
-                product.Images[idx] = mainImage;
+                ProductImage oldImage = product.Images.FirstOrDefault(i => i.Type == ImageType.Main);
+                oldImage.ImageURL.DeleteFile(_env.WebRootPath, "uploads", "product");
+                product.Images.Remove(oldImage);
+                product.Images.Add(mainImage);
             }
             if (productVM.HoverPhoto is not null)
             {
@@ -591,10 +540,36 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                     Type = ImageType.Hover,
                     ImageURL = await productVM.HoverPhoto.CreateFileAsync(_env.WebRootPath, "uploads", "product"),
                 };
-                product.Images.FirstOrDefault(i => i.Type == ImageType.Hover).ImageURL.DeleteFile(_env.WebRootPath, "uploads", "product");
+                ProductImage oldImage = product.Images.FirstOrDefault(i => i.Type == ImageType.Hover);
+                oldImage.ImageURL.DeleteFile(_env.WebRootPath, "uploads", "product");
+                product.Images.Remove(oldImage);
+                product.Images.Add(hoverImage);
+            }
+            if (productVM.ImageIds is null) productVM.ImageIds = new List<int>();
+            List<ProductImage> removeable = product.Images.Where(i => !productVM.ImageIds.Exists(id => id == i.Id) && i.Type == ImageType.All).ToList();
+            removeable.ForEach(item => item.ImageURL.DeleteFile(_env.WebRootPath, "uploads", "product"));
+            _context.ProductImages.RemoveRange(removeable);
 
-                int idx = product.Images.IndexOf(product.Images.FirstOrDefault(i => i.Type == ImageType.Hover));
-                product.Images[idx] = hoverImage;
+            if (productVM.OthersPhoto is not null)
+            {   
+                foreach (IFormFile photo in productVM.OthersPhoto)
+                {
+                    if (!photo.IsValidType(FileType.Image))
+                    {
+                        TempData["ErrorMessages"] += $"<p class=\"text-danger\">Image with name {photo.FileName} wasnt created, because type is not valid!</p>";
+                        continue;
+                    }
+
+
+                    if (!photo.IsValidSize(200, FileSize.Kilobite))
+                    {
+                        TempData["ErrorMessages"] += $"<p class=\"text-danger\">Image with name {photo.FileName} wasnt created, because size bigger than we except (400kB) :(</p>";
+                        continue;
+                    }
+
+                    product.Images.Add(new ProductImage { ImageURL = await photo.CreateFileAsync(_env.WebRootPath, "uploads", "product"), Type=ImageType.All });
+                }
+
             }
 
             product.Name = productVM.Name;

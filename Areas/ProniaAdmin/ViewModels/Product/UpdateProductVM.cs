@@ -31,6 +31,8 @@ namespace Pronia.Areas.ViewModels
 
         //Images
 
+        public List<int>? ImageIds { get; set; }
+
         public List<ProductImage>? Images { get; set; }
 
         public IFormFile? MainPhoto { get; set; }

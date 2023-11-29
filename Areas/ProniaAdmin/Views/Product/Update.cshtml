@@ -5,46 +5,36 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Update Product:</h4>
-
-                <div class="d-flex justify-content-around align-items-center mt-5">
-                    <div class="d-flex flex-column">
-                        <span style="text-align:center; margin-bottom:10px; font-size:20px;">Main Image:</span>
-                        <img style="width:160px; height:160px; border-radius:10px" src="~/uploads/product//@Model.Images.FirstOrDefault(i => i.Type == ImageType.Main)?.ImageURL" />
-                    </div>
-                    <div class="d-flex flex-column">
-                        <span style="text-align:center; margin-bottom:10px; font-size:20px;">Hover Image:</span>
-                        <img style="width:160px; height:160px; border-radius:10px" src="~/uploads/product//@Model.Images.FirstOrDefault(i => i.Type == ImageType.Hover)?.ImageURL" />
-                    </div>
-                    @if(Model.Images.Any(i => i.Type == ImageType.All))
-                    {
-                        <div class="d-flex flex-column">
-                            <span style="text-align:center; margin-bottom:10px; font-size:20px;">Others:</span>
-                            <div>
-                                @foreach (ProductImage image in Model.Images.Where(i => i.Type == ImageType.All).ToList())
-                                {
-                                    <img style="width:160px; height:160px; border-radius:10px" src="~/uploads/product//@image.ImageURL" />
-
-                                }
-                            </div>
-
-                        </div>
-                    }
-                   
-                    
-                   
-
-                </div>
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
 
+                    <div class="form-group">
+                        <img style="width:160px; height:160px; border-radius:10px" src="~/uploads/product//@Model.Images.FirstOrDefault(i => i.Type == ImageType.Main)?.ImageURL" />
+                      
+                    </div>
                     <div class="form-group">
                         <label asp-for="MainPhoto">Main photo:</label>
                         <input asp-for="MainPhoto" class="form-control" placeholder="MainPhoto">
                         <span class="text-danger" asp-validation-for="MainPhoto"></span>
                     </div>
                     <div class="form-group">
+                        <img style="width:160px; height:160px; border-radius:10px" src="~/uploads/product//@Model.Images.FirstOrDefault(i => i.Type == ImageType.Hover)?.ImageURL" />
+                       
+                    </div>
+                    <div class="form-group">
                         <label asp-for="HoverPhoto">Hover photo:</label>
                         <input asp-for="HoverPhoto" class="form-control" placeholder="HoverPhoto">
                         <span class="text-danger" asp-validation-for="HoverPhoto"></span>
+                    </div>
+                    <div class="form-group d-flex">
+                        @foreach (ProductImage image in Model.Images.Where(pi => pi.Type == ImageType.All))
+                        {
+                            <div class="position-relative">
+                                <img src="~/uploads/product/@image.ImageURL" />
+                                <button style="position:absolute; right:5px; top:5px;" type="button" class="cus-delete-btn btn btn-danger">X</button>
+                                <input asp-for="ImageIds" type="hidden" value="@image.Id">
+                            </div>
+                        }
+
                     </div>
                     <div class="form-group">
                         <label asp-for="OthersPhoto">Additional Photos:</label>
@@ -135,3 +125,6 @@
         </div>
     </div>
 </div>
+@section scripts {
+    <script src="~/admin/js/productUpdate.js"></script>
+}
