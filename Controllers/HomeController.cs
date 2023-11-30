@@ -14,11 +14,11 @@ namespace Pronia.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
-            List<Slider> sliders = _context.Sliders.OrderBy(s => s.Order).ToList();
-            List<Product> products = _context.Products.OrderByDescending(s => s.Id).Include(p => p.Images).ToList();
+            List<Slider> sliders = await _context.Sliders.OrderBy(s => s.Order).ToListAsync();
+            List<Product> products = await _context.Products.OrderByDescending(p => p.Id).Take(10).Include(p => p.Images.Where(pi => pi.Type != ImageType.All)).Where(p => p.IsDeleted == false).ToListAsync();
 
             HomeVM homeVM = new HomeVM
             {

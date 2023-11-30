@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Pronia.DAL;
 using Pronia.Models;
+using Pronia.Utilities.Enums;
 using Pronia.ViewModels;
 
 namespace Pronia.Controllers
@@ -18,7 +19,7 @@ namespace Pronia.Controllers
             return View();
         }
 
-        public IActionResult Details(int id)
+        public async  Task<IActionResult> Details(int id)
         {
             if (id <= 0) return BadRequest();
             Product product = _context.Products
@@ -31,9 +32,12 @@ namespace Pronia.Controllers
 
             if (product == null) return NotFound();
 
-            List<Product> similarProducts = _context.Products
-                .Include(product => product.Images)
-                .Where(p => p.CategoryId == product.CategoryId && product.Id != p.Id).ToList();
+            List<Product> similarProducts =  await _context.Products
+                .Include(prod => prod.Images.Where(i => i.Type != ImageType.All))
+                .Where(p => p.CategoryId == product.CategoryId && product.Id != p.Id && p.IsDeleted == false).ToListAsync();
+
+
+            Console.WriteLine(similarProducts.Count);
             
             ProductVM productVM = new ProductVM
             {

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Pronia.DAL;
+using Pronia.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL"));
 });
+
+builder.Services.AddScoped<LayoutService>();
  
 WebApplication app = builder.Build();
 

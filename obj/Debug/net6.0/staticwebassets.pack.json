@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\admin\\css\\maps\\style.css.map"
     },
     {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\admin\\css\\productIndex.css",
+      "PackagePath": "staticwebassets\\admin\\css\\productIndex.css"
+    },
+    {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\admin\\css\\style.css",
       "PackagePath": "staticwebassets\\admin\\css\\style.css"
     },
@@ -1205,6 +1209,22 @@
       "PackagePath": "staticwebassets\\assets\\scss\\style.scss"
     },
     {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\02682878-d611-474c-a8db-cb8d47c9f1ba.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\02682878-d611-474c-a8db-cb8d47c9f1ba.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\0332fac8-1cf8-461e-9012-a1d0ec95247f.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\0332fac8-1cf8-461e-9012-a1d0ec95247f.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\069c06f7-6eb4-450f-96c4-05ebb2e2fe7f.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\069c06f7-6eb4-450f-96c4-05ebb2e2fe7f.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\08c98252-eeb2-468c-9ad5-b116061d8461.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\08c98252-eeb2-468c-9ad5-b116061d8461.jpeg"
+    },
+    {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\1-1-270x300.jpg",
       "PackagePath": "staticwebassets\\uploads\\product\\1-1-270x300.jpg"
     },
@@ -1237,6 +1257,14 @@
       "PackagePath": "staticwebassets\\uploads\\product\\1-3-570x633.jpg"
     },
     {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\1-4-270x300.jpg",
+      "PackagePath": "staticwebassets\\uploads\\product\\1-4-270x300.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\1-5-270x300.jpg",
+      "PackagePath": "staticwebassets\\uploads\\product\\1-5-270x300.jpg"
+    },
+    {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\1-6-270x300.jpg",
       "PackagePath": "staticwebassets\\uploads\\product\\1-6-270x300.jpg"
     },
@@ -1253,16 +1281,68 @@
       "PackagePath": "staticwebassets\\uploads\\product\\1-9-270x300.jpg"
     },
     {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\183fbb9a-b237-42dd-a1f3-ec01c98b601d.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\183fbb9a-b237-42dd-a1f3-ec01c98b601d.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\1c20e5ca-55a7-48b5-aa81-5436756fce0d.svg",
+      "PackagePath": "staticwebassets\\uploads\\product\\1c20e5ca-55a7-48b5-aa81-5436756fce0d.svg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\28ef152d-c8c4-473b-8eb1-b5dc2aa6e0c9.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\28ef152d-c8c4-473b-8eb1-b5dc2aa6e0c9.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\2acb2f8b-f78b-4aa7-aed0-01f224d14691.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\2acb2f8b-f78b-4aa7-aed0-01f224d14691.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\2dc1adf7-57e4-4ad6-b7f3-446a63d518c2.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\2dc1adf7-57e4-4ad6-b7f3-446a63d518c2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\3fabb408-3f27-469b-8399-a538da3de92f.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\3fabb408-3f27-469b-8399-a538da3de92f.jpeg"
+    },
+    {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\4fec5296-0847-42dc-a204-fd52eb991a71.jpeg",
       "PackagePath": "staticwebassets\\uploads\\product\\4fec5296-0847-42dc-a204-fd52eb991a71.jpeg"
     },
     {
-      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\5c0dbe4e-5e87-44ad-bf7f-5275d35801c0.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\product\\5c0dbe4e-5e87-44ad-bf7f-5275d35801c0.jpeg"
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\50f5a9d5-4c1c-466f-90c1-9b81933ad084.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\50f5a9d5-4c1c-466f-90c1-9b81933ad084.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\51088075-90a9-4b11-b747-b0a4770d1af3.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\51088075-90a9-4b11-b747-b0a4770d1af3.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\51387a14-7aaf-4192-ba54-31062e581e69.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\51387a14-7aaf-4192-ba54-31062e581e69.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\53ebac4b-fb08-4dfb-a93a-a87c2a1e39f6.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\53ebac4b-fb08-4dfb-a93a-a87c2a1e39f6.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\54d3d0fb-52ce-4a7c-a150-8568f8d6b765.png",
+      "PackagePath": "staticwebassets\\uploads\\product\\54d3d0fb-52ce-4a7c-a150-8568f8d6b765.png"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\5c9b861a-c2da-483c-b30d-a4b4733d3f14.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\5c9b861a-c2da-483c-b30d-a4b4733d3f14.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\608d1da0-be1e-4345-8db7-c74ba221b4dc.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\608d1da0-be1e-4345-8db7-c74ba221b4dc.jpeg"
     },
     {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\664f396a-2fa4-4e02-9bab-b0e156317c00.jpeg",
       "PackagePath": "staticwebassets\\uploads\\product\\664f396a-2fa4-4e02-9bab-b0e156317c00.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\6799c1cb-e76e-4170-b619-550b4c3f6381.jpg",
+      "PackagePath": "staticwebassets\\uploads\\product\\6799c1cb-e76e-4170-b619-550b4c3f6381.jpg"
     },
     {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\6c38e9f7-2f18-4b82-8520-413526d2e106.jpeg",
@@ -1273,20 +1353,96 @@
       "PackagePath": "staticwebassets\\uploads\\product\\74b5f56a-f5e5-4130-875c-e9cea82fe1f5.jpeg"
     },
     {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\77002e2b-6015-416f-be05-5ba315512278.png",
+      "PackagePath": "staticwebassets\\uploads\\product\\77002e2b-6015-416f-be05-5ba315512278.png"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\7e45c7a2-abb7-43f0-882e-e3f0e2978391.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\7e45c7a2-abb7-43f0-882e-e3f0e2978391.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\7fb2ee0e-5d03-4a6c-b146-3c15b0c17e99.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\7fb2ee0e-5d03-4a6c-b146-3c15b0c17e99.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\8d6f32f0-0489-4aeb-ad30-4ce2aad2a8f9.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\8d6f32f0-0489-4aeb-ad30-4ce2aad2a8f9.jpeg"
+    },
+    {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\8fbe58fc-6688-4115-9044-e92da65b6881.jpeg",
       "PackagePath": "staticwebassets\\uploads\\product\\8fbe58fc-6688-4115-9044-e92da65b6881.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\95d481a2-3d60-48f3-b81c-d4f874253f84.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\95d481a2-3d60-48f3-b81c-d4f874253f84.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\b91ac81b-bf53-4b52-8c0b-53263a4d0538.svg",
+      "PackagePath": "staticwebassets\\uploads\\product\\b91ac81b-bf53-4b52-8c0b-53263a4d0538.svg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\c6250b5b-80e3-4c46-8652-f4aa8e1c8d31.png",
+      "PackagePath": "staticwebassets\\uploads\\product\\c6250b5b-80e3-4c46-8652-f4aa8e1c8d31.png"
     },
     {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\c747b6b2-53a1-4bda-8bea-76200930bbd0.jpeg",
       "PackagePath": "staticwebassets\\uploads\\product\\c747b6b2-53a1-4bda-8bea-76200930bbd0.jpeg"
     },
     {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\caa05f22-bddd-40f0-afa4-8f241fd62f78.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\caa05f22-bddd-40f0-afa4-8f241fd62f78.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\cdca0694-ee5e-43fe-96d4-22fc09c8dba7.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\cdca0694-ee5e-43fe-96d4-22fc09c8dba7.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\d8c13398-0794-4bd1-a3b1-f461ed6d3cd5.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\d8c13398-0794-4bd1-a3b1-f461ed6d3cd5.jpeg"
+    },
+    {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\d9db0f8f-6188-4737-9e86-f6bb89c5f8a4.jpeg",
       "PackagePath": "staticwebassets\\uploads\\product\\d9db0f8f-6188-4737-9e86-f6bb89c5f8a4.jpeg"
     },
     {
-      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\ebb96290-fc7f-4bf8-844c-f384e556772d.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\product\\ebb96290-fc7f-4bf8-844c-f384e556772d.jpeg"
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\db7e10d1-8797-4ab5-a87e-7d52e6dd2c21.svg",
+      "PackagePath": "staticwebassets\\uploads\\product\\db7e10d1-8797-4ab5-a87e-7d52e6dd2c21.svg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\e018fac2-cde5-433f-80e2-683c1eccdcdf.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\e018fac2-cde5-433f-80e2-683c1eccdcdf.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\e5b403ec-6e6d-4dc1-ad15-e1c3ca50703f.svg",
+      "PackagePath": "staticwebassets\\uploads\\product\\e5b403ec-6e6d-4dc1-ad15-e1c3ca50703f.svg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\e7553fc0-036c-490e-b981-2cb74585f5fc.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\e7553fc0-036c-490e-b981-2cb74585f5fc.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\e928b45a-148e-459f-bd16-fc66f0fa28a6.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\e928b45a-148e-459f-bd16-fc66f0fa28a6.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\e9b59abf-0973-4169-aab8-3048ba32bca2.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\e9b59abf-0973-4169-aab8-3048ba32bca2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\f04ef7ae-8be5-494f-af9a-9925bc103df7.png",
+      "PackagePath": "staticwebassets\\uploads\\product\\f04ef7ae-8be5-494f-af9a-9925bc103df7.png"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\f78a2768-68bd-4816-a62e-68e25f8eb88f.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\f78a2768-68bd-4816-a62e-68e25f8eb88f.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\fb797a10-a023-4ea6-aa82-b74373314471.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\fb797a10-a023-4ea6-aa82-b74373314471.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\product\\fc0eb54b-f99f-4083-b6d3-976b8a3fc4b3.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\product\\fc0eb54b-f99f-4083-b6d3-976b8a3fc4b3.jpeg"
     },
     {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\1-1-524x617.png",
@@ -1295,6 +1451,34 @@
     {
       "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\1-2-524x617.png",
       "PackagePath": "staticwebassets\\uploads\\slider\\1-2-524x617.png"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\43b25ff1-3de6-4576-adde-1eb089f7275a.svg",
+      "PackagePath": "staticwebassets\\uploads\\slider\\43b25ff1-3de6-4576-adde-1eb089f7275a.svg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\4cc0920b-96ee-476d-a625-3ee9ec9d9f48.png",
+      "PackagePath": "staticwebassets\\uploads\\slider\\4cc0920b-96ee-476d-a625-3ee9ec9d9f48.png"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\5360be90-e7d4-42d8-855f-4ea7ac1cb9e9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\slider\\5360be90-e7d4-42d8-855f-4ea7ac1cb9e9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\5763a7e1-e88e-4419-96ab-1404448eca52.jpg",
+      "PackagePath": "staticwebassets\\uploads\\slider\\5763a7e1-e88e-4419-96ab-1404448eca52.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\WhatsApp Image 2023-11-21 at 23.57.05.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\slider\\WhatsApp Image 2023-11-21 at 23.57.05.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\a2517f32-eef1-441f-9f2e-ac7cdd7b367c.jpg",
+      "PackagePath": "staticwebassets\\uploads\\slider\\a2517f32-eef1-441f-9f2e-ac7cdd7b367c.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\wwwroot\\uploads\\slider\\back.jpg",
+      "PackagePath": "staticwebassets\\uploads\\slider\\back.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Pronia.Microsoft.AspNetCore.StaticWebAssets.props",

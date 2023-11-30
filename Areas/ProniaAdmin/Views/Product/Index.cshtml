@@ -13,7 +13,7 @@
 
     @if (TempData["ErrorMessages"] is not null)
     {
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="custom-modal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -102,7 +102,9 @@
 
 @section scripts {
     <script src="~/admin/js/productIndex.js"></script>
-    <script src="~/css/bootstrap.css"></script>
-    <script src='@Url.Content("~/js/bootstrap.js")'></script>
+    
+}
 
+@section css {
+    <link href="~/admin/css/productIndex.css" type="text/css" rel="stylesheet"  />
 }
