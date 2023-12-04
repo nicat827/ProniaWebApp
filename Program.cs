@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 });
 
 builder.Services.AddScoped<LayoutService>();
+builder.Services.AddHttpContextAccessor();
  
 WebApplication app = builder.Build();
 

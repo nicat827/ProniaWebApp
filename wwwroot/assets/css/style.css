@@ -635,8 +635,10 @@ img {
   width: 20px;
   height: 20px;
   margin-right: 15px;
-  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-          animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out
+ both;
+          animation: sk-bouncedelay 1.4s infinite ease-in-out
+ both;
 }
 
 .preloader-active .preloader-area-wrap .spinner div.bounce1 {
@@ -1209,9 +1211,15 @@ blockquote p {
 
 /* ---Quantity--- */
 .quantity .cart-plus-minus {
-  position: relative;
-  width: 76px;
-  text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #505050;
+    border: 1px solid #505050;
+    color: #ffffff;
+    width: 76px;
+    text-align: left;
+    border-radius: 5px;
 }
 
 .quantity .cart-plus-minus .cart-plus-minus-box {
@@ -1219,9 +1227,14 @@ blockquote p {
   border: 1px solid #505050;
   color: #ffffff;
   text-align: center;
-  width: 75px;
+  width: 40px;
   height: 50px;
-  border-radius: 5px;
+}
+
+.change-count-btns {
+    color:white;
+    font-weight:700;
+    font-size:21px;
 }
 
 .quantity .cart-plus-minus .qtybutton {

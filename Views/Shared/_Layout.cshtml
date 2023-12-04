@@ -1,4 +1,5 @@
 ﻿@using Pronia.Services;
+
 @inject LayoutService service;
 @{
     Dictionary<string, string> settings = await service.GetSettingsAsync();
@@ -47,7 +48,7 @@
     </div>
     <div class="main-wrapper">
         <!-- Begin Main Header Area -->
-        @await Component.InvokeAsync("Layout")
+        @await Component.InvokeAsync("Header")
         <!-- Main Header Area End Here -->
         @RenderBody()
         <!-- Begin Footer Area -->
@@ -426,5 +427,6 @@
 
     <!--Main JS (Common Activation Codes)-->
     <script src="~/assets/js/main.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>

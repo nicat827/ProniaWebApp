@@ -1,6 +1,10 @@
 ﻿
 @model List<Product>
-
+@{
+    string controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    string action = ViewContext.RouteData.Values["action"].ToString().ToLower();
+    string redId = ViewContext.RouteData.Values["id"]?.ToString();
+}
 
 <div class="container">
     <div class="row">
@@ -52,7 +56,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="cart.html"
+                                            <a asp-controller="basket" asp-action="add" asp-route-id="@product.Id" asp-route-ctrl="@controller" asp-route-act="@action" asp-route-redId="@redId"
                                                data-tippy="Add to cart"
                                                data-tippy-inertia="true"
                                                data-tippy-animation="shift-away"

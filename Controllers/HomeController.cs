@@ -23,8 +23,8 @@ namespace Pronia.Controllers
             HomeVM homeVM = new HomeVM
             {
                 Sliders=sliders,
-                Products=products,
-                NewProducts = products.Take(8).ToList(),
+                Products = products
+
             };
             return View(homeVM);
         }

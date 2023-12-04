@@ -1,4 +1,5 @@
 ﻿using Pronia.Models;
+using Pronia.Utilities.Enums;
 
 namespace Pronia.ViewModels
 {
@@ -8,6 +9,5 @@ namespace Pronia.ViewModels
 
         public List<Product> Products { get; set; }
 
-        public List<Product> NewProducts { get; set; }
     }
 }

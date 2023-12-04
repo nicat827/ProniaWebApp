@@ -1,4 +1,5 @@
 ﻿using Pronia.Models;
+using Pronia.Utilities.Enums;
 
 namespace Pronia.ViewModels
 {
@@ -7,5 +8,6 @@ namespace Pronia.ViewModels
         public Product Product { get; set; }
 
         public List<Product>? SimilarProducts { get; set; }
+
     }
 }

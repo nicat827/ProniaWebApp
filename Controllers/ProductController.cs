@@ -36,9 +36,6 @@ namespace Pronia.Controllers
                 .Include(prod => prod.Images.Where(i => i.Type != ImageType.All))
                 .Where(p => p.CategoryId == product.CategoryId && product.Id != p.Id && p.IsDeleted == false).ToListAsync();
 
-
-            Console.WriteLine(similarProducts.Count);
-            
             ProductVM productVM = new ProductVM
             {
                 Product = product,

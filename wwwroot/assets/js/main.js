@@ -779,9 +779,7 @@
     /*----------------------------------------*/
     /*  QTY Button
 /*----------------------------------------*/
-    $('.cart-plus-minus').append(
-        '<div class="dec qtybutton"><i class="fa fa-minus"></i></div><div class="inc qtybutton"><i class="fa fa-plus"></i></div>'
-    );
+  
     $('.qtybutton').on('click', function () {
         var $button = $(this);
         var oldValue = $button.parent().find('input').val();
@@ -789,7 +787,7 @@
             var newVal = parseFloat(oldValue) + 1;
         } else {
             // Don't allow decrementing below zero
-            if (oldValue > 1) {
+            if (oldValue > 0) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
                 newVal = 1;
