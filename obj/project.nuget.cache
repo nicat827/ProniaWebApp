@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KkipphezLtJRq6/eUXXtjw3FuVN1z8qwVvD/sVM1hDomgsB3Yv3q7Dyk4zQ/ZMxPP5Rd7apvqYbSdL21ImdIQA==",
+  "dgSpecHash": "6T0RPz856hLFRbsWwBft/cWw9e7WkId/j1CmkkoGhbA4xUZoR/fHp/lDHX4xZuAWj+3ldWPvt7PeZtC8XnFwAg==",
   "success": true,
   "projectFilePath": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\Pronia.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,9 @@
     "C:\\Users\\nicim\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\nicim\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.25\\microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512",
+    "C:\\Users\\nicim\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.25\\microsoft.aspnetcore.cryptography.keyderivation.6.0.25.nupkg.sha512",
+    "C:\\Users\\nicim\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.25\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.25.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
@@ -92,6 +95,8 @@
     "C:\\Users\\nicim\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\microsoft.extensions.dependencymodel\\7.0.0\\microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
+    "C:\\Users\\nicim\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.25\\microsoft.extensions.identity.core.6.0.25.nupkg.sha512",
+    "C:\\Users\\nicim\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.25\\microsoft.extensions.identity.stores.6.0.25.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
