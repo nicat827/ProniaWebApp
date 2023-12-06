@@ -1,4 +1,5 @@
 ﻿using Azure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -21,6 +22,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             _context = context;
             _env = env;
         }
+        [Authorize(Roles = "Admin, Moderator")]
 
         public async Task<IActionResult> Index()
         {
@@ -32,6 +34,8 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                 
             return View(products);
         }
+
+        [Authorize(Roles = "Admin, Moderator")]
 
         public async Task<IActionResult> Create()
         {
@@ -236,6 +240,8 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
 
         }
 
+        [Authorize(Roles = "Admin, Moderator")]
+
         public async Task<IActionResult> Details(int id)
         {
             if (id <= 0) return BadRequest();
@@ -250,6 +256,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             return View(product);
         }
 
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> Delete(int id)
         {
@@ -274,6 +281,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Admin, Moderator")]
 
         public async Task<IActionResult> Update(int id)
         {

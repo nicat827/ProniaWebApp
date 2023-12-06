@@ -29,10 +29,13 @@ builder.Services.AddHttpContextAccessor();
 WebApplication app = builder.Build();
 
 app.UseAuthentication();
-app.UseAuthorization();
+    
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "admin",

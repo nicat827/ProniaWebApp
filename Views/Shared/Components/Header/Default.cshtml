@@ -93,13 +93,16 @@
                                         @if (User.Identity.IsAuthenticated)
                                         {
                                             <li>
-                                                <a class="dropdown-item" href="my-account.html">My account</a>
+                                                <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                                <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
+
                                             </li>
                                         }
                                         else
                                         {
                                             <li>
-                                                <a class="dropdown-item" asp-controller="user" asp-action="register">Register</a>
+                                                <a class="dropdown-item" asp-controller="account" asp-action="register" asp-route-returnurl="@Context.Request.Path.Value">Register</a>
+                                                <a class="dropdown-item" asp-controller="account" asp-action="login" asp-route-returnurl="@Context.Request.Path.Value">Login</a>
                                             </li>
                                         }
 
@@ -137,7 +140,16 @@
                     <div class="main-menu position-relative">
                         <nav class="main-nav">
                             <ul>
+                                <li>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a asp-area="ProniaAdmin" asp-controller="dashboard" asp-action="index">Admin Panel</a>
+
+                                    }
+                                </li>
                                 <li class="drop-holder">
+                                    
+
                                     <a asp-controller="home" asp-action="index">Home</a>
                                     <ul class="drop-menu">
                                         <li>
@@ -200,12 +212,21 @@
                                         <li>
                                             <span class="title">Product Related</span>
                                             <ul>
-                                                <li>
-                                                    <a href="my-account.html">My Account</a>
-                                                </li>
-                                                <li>
-                                                    <a href="login-register.html">Login | Register</a>
-                                                </li>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                                        <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
+
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" asp-controller="account" asp-action="register" asp-route-returnurl="@Context.Request.Path.Value">Register</a>
+                                                        <a class="dropdown-item" asp-controller="account" asp-action="login" asp-route-returnurl="@Context.Request.Path.Value">Login</a>
+                                                    </li>
+                                                }
                                                 <li>
                                                     <a href="cart.html">Shopping Cart</a>
                                                 </li>
@@ -333,12 +354,21 @@
                                             <li>
                                                 <span class="title">Product Related</span>
                                                 <ul>
-                                                    <li>
-                                                        <a href="my-account.html">My Account</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="login-register.html">Login | Register</a>
-                                                    </li>
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <li>
+                                                            <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                                            <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
+
+                                                        </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li>
+                                                            <a class="dropdown-item" asp-controller="account" asp-action="register" asp-route-returnurl="@Context.Request.Path.Value">Register</a>
+                                                            <a class="dropdown-item" asp-controller="account" asp-action="login" asp-route-returnurl="@Context.Request.Path.Value">Login</a>
+                                                        </li>
+                                                    }
                                                     <li>
                                                         <a href="cart.html">Shopping Cart</a>
                                                     </li>
@@ -409,12 +439,21 @@
                                     </button>
                                     <ul class="dropdown-menu"
                                         aria-labelledby="stickysettingButton">
-                                        <li>
-                                            <a class="dropdown-item" href="my-account.html">My account</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="login-register.html">Login | Register</a>
-                                        </li>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li>
+                                                <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                                <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
+
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a class="dropdown-item" asp-controller="account" asp-action="register" asp-route-returnurl="@Context.Request.Path.Value">Register</a>
+                                                <a class="dropdown-item" asp-controller="account" asp-action="login" asp-route-returnurl="@Context.Request.Path.Value">Login</a>
+                                            </li>
+                                        }
                                     </ul>
                                 </li>
                                 <li class="d-none d-lg-block">
@@ -492,12 +531,21 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end"
                                 aria-labelledby="settingButtonTwo">
-                                <li>
-                                    <a class="dropdown-item" href="my-account.html">My account</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="login-register.html">Login | Register</a>
-                                </li>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                    <li>
+                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                        <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
+
+                                    </li>
+                                    }
+                                    else
+                                    {
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="account" asp-action="register" asp-route-returnurl="@Context.Request.Path.Value">Register</a>
+                                        <a class="dropdown-item" asp-controller="account" asp-action="login" asp-route-returnurl="@Context.Request.Path.Value">Login</a>
+                                    </li>
+                                    }
                             </ul>
                         </li>
                         <li>
@@ -510,6 +558,13 @@
                 <div class="offcanvas-menu_area">
                     <nav class="offcanvas-navigation">
                         <ul class="mobile-menu">
+                            <li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a asp-area="ProniaAdmin" asp-controller="dashboard" asp-action="index">Admin Panel</a>
+
+                                }
+                            </li>
                             <li class="menu-item-has-children">
                                 <a href="#">
                                     <span class="mm-text">
@@ -628,7 +683,7 @@
                                         <ul class="sub-menu">
                                             <li>
                                                 <a href="my-account.html">
-                                                    <span class="mm-text">My Account</span>
+                                                    <span class="mm-text">My account</span>
                                                 </a>
                                             </li>
                                             <li>
