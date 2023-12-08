@@ -1,12 +1,6 @@
 ﻿
 @model List<BasketItemVM>
-@{
-    decimal total = 0;
-    string controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();
-    string action = ViewContext.RouteData.Values["action"].ToString().ToLower();
 
-
-}
 <div id="rend-div">
     <main class="main-content">
         <div class="breadcrumb-area breadcrumb-height"
@@ -54,10 +48,9 @@
 
                                             @foreach (BasketItemVM item in Model)
                                             {
-                                                total += item.Subtotal;
                                                 <tr>
                                                     <td class="product_remove">
-                                                        <a asp-controller="basket" asp-action="remove" asp-route-id="@item.Id" asp-route-ctrl="@controller" asp-route-act="@action">
+                                                        <a asp-controller="basket" asp-action="remove" asp-route-id="@item.Id" asp-route-returnurl="@Context.Request.Path.Value">
                                                             <i class="pe-7s-close"
                                                                data-tippy="Remove"
                                                                data-tippy-inertia="true"
@@ -81,13 +74,13 @@
                                                     </td>
                                                     <td class="quantity">
                                                         <div class="cart-plus-minus">
-                                                            <a class="change-count-btns" asp-controller="basket" asp-action="decreese" asp-route-id="@item.Id">
+                                                            <a class="change-count-btns" asp-controller="basket" asp-action="decrease" asp-route-id="@item.Id">
                                                                 -
                                                             </a>
                                                             <input data-id="@item.Id" id="prod-count-id" class="cart-plus-minus-box"
                                                                    value="@item.Count"
                                                                    type="text" />
-                                                            <a class="change-count-btns" asp-controller="basket" asp-action="add" asp-route-id="@item.Id" asp-route-ctrl="@controller" asp-route-act="@action">
+                                                            <a class="change-count-btns" asp-controller="basket" asp-action="add" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
                                                                 +
                                                             </a>
 
@@ -136,7 +129,7 @@
                                     <div class="cart-page-total">
                                         <h2>Cart totals</h2>
                                         <ul>
-                                            <li>Total <span>$@total</span></li>
+                                            <li>Total <span>$@Model.Sum(bi => bi.Subtotal)</span></li>
                                         </ul>
                                         <a href="#">Proceed to checkout</a>
                                     </div>

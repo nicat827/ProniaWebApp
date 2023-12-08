@@ -1,11 +1,5 @@
 ﻿@model HeaderVM
-@{
-    decimal total = 0;
-    string controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();
-    string action = ViewContext.RouteData.Values["action"].ToString().ToLower();
-    string redId = ViewContext.RouteData.Values["id"]?.ToString();
 
-}
 <header class="main-header-area">
     <div class="header-top bg-pronia-primary d-none d-lg-block">
         <div class="container">
@@ -843,9 +837,8 @@
                 <ul class="minicart-list">
                     @foreach (BasketItemVM item in Model.BasketItems)
                     {
-                        total += item.Subtotal;
                         <li class="minicart-product">
-                            <a asp-controller="basket" asp-action="remove" asp-route-id="@item.Id" asp-route-ctrl="@controller" asp-route-act="@action" asp asp-route-redId="@redId">
+                            <a asp-controller="basket" asp-action="remove" asp-route-id="@item.Id" asp-route-returnurl="@Context.Request.Path.Value">
                                 <i class="pe-7s-close"
                                    data-tippy="Remove"
                                    data-tippy-inertia="true"
@@ -873,7 +866,7 @@
             </div>
             <div class="minicart-item_total">
                 <span>Total</span>
-                <span class="ammount">$@total</span>
+                <span class="ammount">$@Model.BasketItems.Sum(bi => bi.Subtotal)</span>
             </div>
             <div class="group-btn_wrap d-grid gap-2">
                 <a asp-controller="basket" asp-action="index" class="btn btn-dark">View Cart</a>

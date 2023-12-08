@@ -1,10 +1,6 @@
 ﻿
 @model List<Product>
-@{
-    string controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();
-    string action = ViewContext.RouteData.Values["action"].ToString().ToLower();
-    string redId = ViewContext.RouteData.Values["id"]?.ToString();
-}
+
 
 <div class="product-item-wrap row">
 @foreach (Product product in Model)
@@ -47,7 +43,7 @@
                             </a>
                         </li>
                         <li>
-                                <a asp-action="add" asp-controller="basket" asp-route-id="@product.Id" asp-route-ctrl="@controller" asp-route-act="@action" asp-route-redId="@redId"
+                                <a asp-action="add" asp-controller="basket" asp-route-id="@product.Id" asp-route-returnUrl="@Context.Request.Path.Value"
                                data-tippy="Add to cart"
                                data-tippy-inertia="true"
                                data-tippy-animation="shift-away"

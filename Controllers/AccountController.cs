@@ -136,9 +136,12 @@ namespace Pronia.Controllers
                 ModelState.AddModelError(string.Empty, "Username, Email or password is incorrect!");
                 return View();
 
-            }               
+            }
 
-
+            if (Request.Cookies["basket"] is not null)
+            {
+                Response.Cookies.Delete("basket");
+            }
             
             if (returnUrl == null)
             {

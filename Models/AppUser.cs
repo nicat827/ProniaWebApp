@@ -10,6 +10,8 @@ namespace Pronia.Models
         public string Surname { get; set; }
         public Gender Gender { get; set; }
 
+        public List<BasketItem> BasketItems { get; set; }
+
 
     }
 }
