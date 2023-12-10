@@ -2,12 +2,15 @@
 using Microsoft.AspNetCore.Http;
 using  Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Pronia.DAL;
 using Pronia.Models;
 using Pronia.Utilities.Enums;
 using Pronia.Utilities.Enums.AuthEnums;
 using Pronia.Utilities.Extensions;
 using Pronia.ViewModels;
 using System.Configuration;
+using System.Security.Claims;
 
 namespace Pronia.Controllers
 {
@@ -16,19 +19,24 @@ namespace Pronia.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly AppDbContext _context;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, AppDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _context = context;
         }
         public IActionResult Register()
         {
+            if (User.Identity.IsAuthenticated) return NotFound();
             return View();
         }
 
         [HttpPost]
+
+        
         public async Task<IActionResult> Register(RegisterUserVM userVM, string? returnUrl)
         {
             if (!ModelState.IsValid) {
@@ -100,6 +108,8 @@ namespace Pronia.Controllers
 
         public IActionResult Login()
         {
+            if (User.Identity.IsAuthenticated) return NotFound();
+
             return View();
         }
 
@@ -182,5 +192,27 @@ namespace Pronia.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [Authorize]
+        public async Task<IActionResult> Index() 
+        {
+            AppUser? user = await _userManager.Users
+                .Include(u => u.Orders)
+                .ThenInclude(o => o.OrderItems)
+                .ThenInclude(o => o.Product)
+                .ThenInclude(p => p.Images.Where(i => i.Type == ImageType.Main))
+                .FirstOrDefaultAsync(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+         
+            return View(new UserDetailsVM
+            { 
+                Orders = user.Orders,
+                Name = user.Name,
+                Surname = user.Surname,
+                Email = user.Email,
+                Username = user.UserName,
+                Gender = user.Gender
+            });
+        }
+
     }
 }

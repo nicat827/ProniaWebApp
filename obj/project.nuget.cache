@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6T0RPz856hLFRbsWwBft/cWw9e7WkId/j1CmkkoGhbA4xUZoR/fHp/lDHX4xZuAWj+3ldWPvt7PeZtC8XnFwAg==",
+  "dgSpecHash": "iB7uQJBySvkMLLlPqJ502uYQp2I2RGiP7As0CncUDZWk4EeY9PgRPF8x0QQ9CW7lIvKl9XQvvuovSicRPThzwg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nicim\\OneDrive\\Desktop\\Pronia\\Pronia.csproj",
+  "projectFilePath": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\Pronia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nicim\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\nicim\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

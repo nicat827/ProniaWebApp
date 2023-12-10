@@ -24,6 +24,8 @@ namespace Pronia.DAL
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<OrderItem> OrderItems { get; set; }
+
         public AppDbContext(DbContextOptions options):base(options)
         {
             

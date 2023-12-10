@@ -12,6 +12,8 @@ namespace Pronia.Models
 
         public List<BasketItem> BasketItems { get; set; }
 
+        public List<Order> Orders { get; set; }
+
 
     }
 }

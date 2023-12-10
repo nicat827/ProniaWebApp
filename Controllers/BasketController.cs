@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Pronia.DAL;
+using Pronia.Interfaces;
 using Pronia.Models;
 using Pronia.Utilities.Enums;
 using Pronia.ViewModels;
 using System.Security.Claims;
+using System.Text;
 
 namespace Pronia.Controllers
 {
@@ -15,11 +18,13 @@ namespace Pronia.Controllers
     {
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IEmailService _emailService;
 
-        public BasketController(AppDbContext context, UserManager<AppUser> userManager)
+        public BasketController(AppDbContext context, UserManager<AppUser> userManager, IEmailService emailService)
         {
             _context = context;
             _userManager = userManager;
+            _emailService = emailService;
         }
 
         public async Task<IActionResult> Index()
@@ -101,7 +106,6 @@ namespace Pronia.Controllers
                     {
                         ProductId = product.Id,
                         AppUserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
-                        Price = product.Price,
                         Count = 1,
 
                     });
@@ -144,7 +148,7 @@ namespace Pronia.Controllers
 
                 Response.Cookies.Append("basket", JsonConvert.SerializeObject(items));
             }
-           
+
             if (returnUrl is not null) return Redirect(returnUrl);
             return RedirectToAction("Index", "Basket");
         }
@@ -224,6 +228,109 @@ namespace Pronia.Controllers
         public IActionResult Test()
         {
             return Content(Request.Cookies["basket"]);
+        }
+
+
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> Checkout()
+        {
+            List<CheckoutItemVM> checkoutItems = new List<CheckoutItemVM>();
+            List<BasketItem> userItems = await _context.BasketItems
+                .Include(bi => bi.Product)
+                .Where(bi => bi.AppUserId == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                .ToListAsync();
+            foreach (BasketItem item in userItems)
+            {
+                checkoutItems.Add(new CheckoutItemVM
+                {
+                    Name = item.Product.Name,
+                    Price = item.Product.Price,
+                    Count = item.Count,
+                    Subtotal = item.Count * item.Product.Price
+                });
+
+            }
+            return View(new CheckoutVM { CheckoutItems = checkoutItems});
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Checkout(CheckoutVM checkoutVM)
+        {
+            List<BasketItem> userItems = await _context.BasketItems
+                .Include(bi => bi.Product)
+                .ThenInclude(p => p.Images.Where(i => i.Type == ImageType.Main))
+                .Where(bi => bi.AppUserId == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                .ToListAsync();
+           
+            if (!ModelState.IsValid)
+            {
+                List<CheckoutItemVM> checkoutItems = new List<CheckoutItemVM>();
+
+                foreach (BasketItem item in userItems)
+                {
+                    checkoutItems.Add(new CheckoutItemVM
+                    {
+                        Name = item.Product.Name,
+                        Price = item.Product.Price,
+                        Count = item.Count,
+                        Subtotal = item.Count * item.Product.Price
+                    });
+
+                }
+                checkoutVM.CheckoutItems = checkoutItems;
+                return View(checkoutVM);
+            }
+
+            Order order = new Order
+            {
+                AppUserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                Status = OrderStatus.Pending,
+                Address = checkoutVM.Address,
+                OrderItems = new List<OrderItem>()
+            };
+            decimal total = 0;
+            foreach (BasketItem item in userItems)
+            {
+                total += item.Product.Price * item.Count;
+
+                order.OrderItems.Add(new OrderItem
+                {
+                    Count = item.Count,
+                    Price = item.Product.Price,
+                    ProductId = item.ProductId,
+                });
+            }
+
+            _context.BasketItems.RemoveRange(userItems);
+            order.CreatedAt = DateTime.Now;
+            order.TotalPrice = total;
+            await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<div style='padding:10px;color:white;background-color:black;border:1px solid gray; border-radius:6px;'><table cellspacing='5' cellpadding='10' style='padding:10px;color:white;background-color:black;'><thead><th style='min-width:70px;text-align:start;' >Name</th><th style='min-width:70px;text-align:start'>Price</th><th style='min-width:70px;text-align:start;'>Count</th><thstyle='min-width:70px;text-align:start;'>SubTotal</th></thead><tbody>");
+            foreach (OrderItem item in order.OrderItems)
+            {
+                sb.Append(
+                $"<tr>" +
+                    $"<td>{item.Product.Name}</td>" +
+                    $"<td>${item.Price}</td>" +
+                    $"<td>{item.Count}</td>" +
+                    $"<td>${item.Count * item.Price}</td>" +
+                      
+                   
+                $"</tr>");
+            }
+
+            sb.Append($"</tbody></table><div style='margin-top:10px;'>Total Price: <b style='color:green;'>${order.TotalPrice}</b></div></div>");
+            Console.WriteLine(sb.ToString());
+           
+            await _emailService.SendEmailAsync(User.FindFirstValue(ClaimTypes.Email), sb.ToString(), "Order created!", true);
+
+
+            return RedirectToAction("Index", "Home");
+
+
         }
     }
 }

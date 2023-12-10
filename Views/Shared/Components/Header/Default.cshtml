@@ -87,7 +87,7 @@
                                         @if (User.Identity.IsAuthenticated)
                                         {
                                             <li>
-                                                <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                                <a class="dropdown-item" asp-controller="account" asp-action="index">@User.Identity.Name.ToUpper()</a>
                                                 <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
 
                                             </li>
@@ -209,7 +209,7 @@
                                                 @if (User.Identity.IsAuthenticated)
                                                 {
                                                     <li>
-                                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                                        <a class="dropdown-item" asp-controller="account" asp-action="index">@User.Identity.Name.ToUpper()</a>
                                                         <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
 
                                                     </li>
@@ -231,7 +231,7 @@
                                                     <a href="compare.html">Compare</a>
                                                 </li>
                                                 <li>
-                                                    <a href="checkout.html">Checkout</a>
+                                                    <a asp-controller="basket" asp-action="checkout">Checkout</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -351,7 +351,7 @@
                                                     @if (User.Identity.IsAuthenticated)
                                                     {
                                                         <li>
-                                                            <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                                            <a class="dropdown-item" asp-controller="account" asp-action="index">@User.Identity.Name.ToUpper()</a>
                                                             <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
 
                                                         </li>
@@ -373,7 +373,7 @@
                                                         <a href="compare.html">Compare</a>
                                                     </li>
                                                     <li>
-                                                        <a href="checkout.html">Checkout</a>
+                                                        <a asp-controller="basket" asp-action="checkout">Checkout</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -436,7 +436,7 @@
                                         @if (User.Identity.IsAuthenticated)
                                         {
                                             <li>
-                                                <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                                <a class="dropdown-item" asp-controller="account" asp-action="index">@User.Identity.Name.ToUpper()</a>
                                                 <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
 
                                             </li>
@@ -528,7 +528,7 @@
                                     @if (User.Identity.IsAuthenticated)
                                     {
                                     <li>
-                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name.ToUpper()</a>
+                                        <a class="dropdown-item" asp-controller="account" asp-action="index">@User.Identity.Name.ToUpper()</a>
                                         <a class="dropdown-item" asp-controller="account" asp-action="logout" asp-route-returnurl="@Context.Request.Path.Value">Logout</a>
 
                                     </li>
@@ -701,7 +701,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="checkout.html">
+                                                <a asp-controller="basket" asp-action="checkout">
                                                     <span class="mm-text">Checkout</span>
                                                 </a>
                                             </li>
@@ -870,7 +870,7 @@
             </div>
             <div class="group-btn_wrap d-grid gap-2">
                 <a asp-controller="basket" asp-action="index" class="btn btn-dark">View Cart</a>
-                <a href="checkout.html" class="btn btn-dark">Checkout</a>
+                <a asp-controller="basket" asp-action="checkout" class="btn btn-dark">Checkout</a>
             </div>
         </div>
     </div>
