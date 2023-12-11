@@ -1,6 +1,12 @@
 ﻿@model RegisterUserVM
 
 <main class="main-content">
+    @if (ViewBag.ConfirmEmailModal is not null)
+    {
+        <div class="modal-dialog modal-dialog-centered">
+            Please, confirm your email!
+        </div>
+    } 
     <div class="breadcrumb-area breadcrumb-height"
          data-bg-image="../../../assets/images/breadcrumb/bg/1-1-1919x388.jpg">
         <div class="container h-100">
@@ -91,3 +97,17 @@
         </div>
     </div>
 </main>
+
+@if (ViewBag.ConfirmEmailModal is not null)
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            title: "Email Confirmation",
+            text: "Please, confirm your email",
+            icon: "warning",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Ok!"
+        })
+    </script>
+}

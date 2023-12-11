@@ -4,6 +4,7 @@ using  Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pronia.DAL;
+using Pronia.Interfaces;
 using Pronia.Models;
 using Pronia.Utilities.Enums;
 using Pronia.Utilities.Enums.AuthEnums;
@@ -20,13 +21,15 @@ namespace Pronia.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppDbContext _context;
+        private readonly IEmailService _emailService;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, AppDbContext context)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, AppDbContext context, IEmailService emailService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _context = context;
+            _emailService = emailService;
         }
         public IActionResult Register()
         {
@@ -95,14 +98,14 @@ namespace Pronia.Controllers
             }
             await _userManager.AddToRoleAsync(user, UserRole.Member.ToString());
 
-            await _signInManager.SignInAsync(user, isPersistent: false);
-            if (returnUrl is null)
-            {
-                return RedirectToAction("Index", "Home");
+            //await _signInManager.SignInAsync(user, isPersistent: false);
 
-            }
-
-            return Redirect(returnUrl);
+            string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            string action = Url.Action(nameof(SuccessConfirm), "Account", new { token, Email = user.Email }, Request.Scheme);
+            string body = $"<a style='width:80px; height:50px; background-color:blue;color:white;border:1px solid white; border-radius:8px; text-decoration:none; font-weight:700;' href={action}>Confirm Email</a>";
+            await _emailService.SendEmailAsync(user.Email, body, "Email Confirmation", true);
+            ViewBag.ConfirmEmailModal = true;
+            return View();
 
         }
 
@@ -111,6 +114,22 @@ namespace Pronia.Controllers
             if (User.Identity.IsAuthenticated) return NotFound();
 
             return View();
+        }
+
+        public async Task<ActionResult> SuccessConfirm(string token, string email)
+        {
+            AppUser appUser = await _userManager.FindByEmailAsync(email);
+            if (appUser == null) return NotFound();
+            var res = await _userManager.ConfirmEmailAsync(appUser, token);
+
+            if (!res.Succeeded)
+            {
+                return BadRequest();
+            }
+
+            await _signInManager.SignInAsync(appUser, false);
+            TempData.Add("confirm-success", true);
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -139,6 +158,14 @@ namespace Pronia.Controllers
                 ModelState.AddModelError(string.Empty, "Too many failed attempts, try later!");
                 userVM.IsLocked = true;
                 return View(userVM);
+            }
+
+            if (!user.EmailConfirmed)
+            {
+                ModelState.AddModelError(string.Empty, "Confirm your email, before you can sign in!");
+                return View(userVM);
+
+
             }
 
             if (!res.Succeeded)

@@ -25,7 +25,7 @@ namespace Pronia.Services
 
             MailMessage message = new MailMessage(from, to);
 
-            message.Subject = "Order created";
+            message.Subject = subject;
             message.Body = body;
             message.IsBodyHtml = isHtml;
 
