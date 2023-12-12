@@ -15,7 +15,7 @@
                         <h2 class="breadcrumb-heading">Single Product</h2>
                         <ul>
                             <li>
-                                <a href="index.html">Home</a>
+                                <a asp-controller="home" asp-action="home">Home</a>
                             </li>
                             <li>Single Product variable</li>
                         </ul>
@@ -35,10 +35,10 @@
                                 @foreach (ProductImage image in Model.Product.Images.OrderBy(img => img.Type).ToList())
                                 {
                                     <div class="swiper-slide">
-                                        <a href="~/assets/images/website-images/@image.ImageURL"
+                                        <a href="~/uploads/product/@image.ImageURL"
                                            class="single-img gallery-popup">
                                             <img class="img-full"
-                                                 src="~/assets/images/website-images/@image.ImageURL"
+                                                 src="~/uploads/product/@image.ImageURL"
                                                  alt="Product Image" />
                                         </a>
                                     </div>
@@ -54,7 +54,7 @@
                                     {
                                         <a href="#" class="swiper-slide">
                                             <img class="img-full"
-                                                 src="~/assets/images/website-images/@image.ImageURL"
+                                                 src="~/uploads/product/@image.ImageURL"
                                                  alt="Product Image" />
                                         </a>
                                      

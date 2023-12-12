@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "M2o7UzcalbkQKG4XXvYuiRBOYZrfTfckBCG3h2zx82k=",
+  "Hash": "HdWnxTWpzFpW6TiWYoMTzAiF9iXD221Ic8G81Nq4/r0=",
   "Source": "Pronia",
   "BasePath": "_content/Pronia",
   "Mode": "Default",
@@ -5202,6 +5202,40 @@
       "OriginalItemSpec": "wwwroot\\uploads\\product\\0332fac8-1cf8-461e-9012-a1d0ec95247f.jpeg"
     },
     {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\03b58409-5d26-43b2-81a0-6fecc8707155.jpg",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/03b58409-5d26-43b2-81a0-6fecc8707155.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\03b58409-5d26-43b2-81a0-6fecc8707155.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\055fcaad-3255-4ac9-a450-ba68dc155a9b.jpg",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/055fcaad-3255-4ac9-a450-ba68dc155a9b.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\055fcaad-3255-4ac9-a450-ba68dc155a9b.jpg"
+    },
+    {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\069c06f7-6eb4-450f-96c4-05ebb2e2fe7f.jpeg",
       "SourceId": "Pronia",
       "SourceType": "Discovered",
@@ -5234,6 +5268,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\product\\08c98252-eeb2-468c-9ad5-b116061d8461.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\0a588fbf-3543-43bf-b0af-7cb95b6d06bd.png",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/0a588fbf-3543-43bf-b0af-7cb95b6d06bd.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\0a588fbf-3543-43bf-b0af-7cb95b6d06bd.png"
     },
     {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\0b4669c1-8f32-4b75-b7ea-3ebcc3948766.jpeg",
@@ -5542,6 +5593,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\product\\28ef152d-c8c4-473b-8eb1-b5dc2aa6e0c9.jpeg"
     },
     {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\29bc349f-417d-4c74-83f1-166ffcee6ace.png",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/29bc349f-417d-4c74-83f1-166ffcee6ace.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\29bc349f-417d-4c74-83f1-166ffcee6ace.png"
+    },
+    {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\2acb2f8b-f78b-4aa7-aed0-01f224d14691.jpeg",
       "SourceId": "Pronia",
       "SourceType": "Discovered",
@@ -5559,6 +5627,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\product\\2acb2f8b-f78b-4aa7-aed0-01f224d14691.jpeg"
     },
     {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\2c65ce02-61cd-4dd5-b44f-c4f691dab197.jpg",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/2c65ce02-61cd-4dd5-b44f-c4f691dab197.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\2c65ce02-61cd-4dd5-b44f-c4f691dab197.jpg"
+    },
+    {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\2dc1adf7-57e4-4ad6-b7f3-446a63d518c2.jpeg",
       "SourceId": "Pronia",
       "SourceType": "Discovered",
@@ -5574,6 +5659,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\product\\2dc1adf7-57e4-4ad6-b7f3-446a63d518c2.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\2e0ec1f7-896b-419b-961e-0045db347cf3.png",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/2e0ec1f7-896b-419b-961e-0045db347cf3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\2e0ec1f7-896b-419b-961e-0045db347cf3.png"
     },
     {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\3fabb408-3f27-469b-8399-a538da3de92f.jpeg",
@@ -5797,6 +5899,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\product\\6c38e9f7-2f18-4b82-8520-413526d2e106.jpeg"
     },
     {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\7310d801-9a87-4cfc-b0d0-af1fc34a435d.jpg",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/7310d801-9a87-4cfc-b0d0-af1fc34a435d.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\7310d801-9a87-4cfc-b0d0-af1fc34a435d.jpg"
+    },
+    {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\74b5f56a-f5e5-4130-875c-e9cea82fe1f5.jpeg",
       "SourceId": "Pronia",
       "SourceType": "Discovered",
@@ -5916,6 +6035,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\product\\95d481a2-3d60-48f3-b81c-d4f874253f84.jpeg"
     },
     {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\964d6e24-bec7-4155-b419-308a61c62f44.jpg",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/964d6e24-bec7-4155-b419-308a61c62f44.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\964d6e24-bec7-4155-b419-308a61c62f44.jpg"
+    },
+    {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\b91ac81b-bf53-4b52-8c0b-53263a4d0538.svg",
       "SourceId": "Pronia",
       "SourceType": "Discovered",
@@ -5931,6 +6067,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\product\\b91ac81b-bf53-4b52-8c0b-53263a4d0538.svg"
+    },
+    {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\baff61ea-4288-4e4f-9dc5-3fda17ddde2c.jpg",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/baff61ea-4288-4e4f-9dc5-3fda17ddde2c.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\baff61ea-4288-4e4f-9dc5-3fda17ddde2c.jpg"
     },
     {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\c6250b5b-80e3-4c46-8652-f4aa8e1c8d31.png",
@@ -5999,6 +6152,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\product\\cdca0694-ee5e-43fe-96d4-22fc09c8dba7.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\d485825b-88dc-4f77-b826-5482944c87ab.jpg",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/d485825b-88dc-4f77-b826-5482944c87ab.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\d485825b-88dc-4f77-b826-5482944c87ab.jpg"
     },
     {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\d8c13398-0794-4bd1-a3b1-f461ed6d3cd5.jpeg",
@@ -6152,6 +6322,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\product\\ebb96290-fc7f-4bf8-844c-f384e556772d.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\ed386e4c-91ff-48b8-b13d-05757caf941c.jpg",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/product/ed386e4c-91ff-48b8-b13d-05757caf941c.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\product\\ed386e4c-91ff-48b8-b13d-05757caf941c.jpg"
     },
     {
       "Identity": "C:\\Users\\nicim\\OneDrive\\Desktop\\codeacademy\\Pronia\\wwwroot\\uploads\\product\\f04ef7ae-8be5-494f-af9a-9925bc103df7.png",

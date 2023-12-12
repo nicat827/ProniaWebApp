@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Pronia.DAL;
 using Pronia.Models;
 using Pronia.Utilities.Enums;
+using Pronia.Utilities.Exceptions;
 using Pronia.ViewModels;
 
 namespace Pronia.Controllers
@@ -21,7 +22,7 @@ namespace Pronia.Controllers
 
         public async  Task<IActionResult> Details(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new BadRequestException();
             Product product = _context.Products
                 .Include(product => product.Category)
                 .Include(product => product.Images)

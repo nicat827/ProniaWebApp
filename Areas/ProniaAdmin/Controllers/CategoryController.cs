@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Pronia.Areas.ViewModels;
 using Pronia.DAL;
 using Pronia.Models;
+using Pronia.ViewModels;
 
 namespace Pronia.Areas.ProniaAdmin.Controllers
 {
@@ -16,15 +17,20 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            List<Category> categories = await _context.Categories
+            if (page < 1) return BadRequest();
+            int categoryCount = await _context.Categories.CountAsync();
+            int totalPages = (int)Math.Ceiling((double)categoryCount / 3);
+            if (page > totalPages) return BadRequest();
+           
+            List<Category> categories = await _context.Categories.Skip((page -1) *3).Take(3)
                 .Include(c => c.Products)
                 .ToListAsync();
 
            
            
-            return View(categories);
+            return View(new PaginationVM<Category> { CurrentPage = page, TotalPage = totalPages, Items  = categories});
         }
 
         public IActionResult Create() {

@@ -7,7 +7,9 @@ using Pronia.Areas.ViewModels;
 using Pronia.DAL;
 using Pronia.Models;
 using Pronia.Utilities.Enums;
+using Pronia.Utilities.Exceptions;
 using Pronia.Utilities.Extensions;
+using Pronia.ViewModels;
 
 namespace Pronia.Areas.ProniaAdmin.Controllers
 {
@@ -24,15 +26,28 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
         }
         [Authorize(Roles = "Admin, Moderator")]
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
+            if (page < 1) throw new BadRequestException("Id is not valid!");
+            // isDeleted false olan productlarin countu ( hamsi yox)
+            int productsCount = await _context.Products.Where(p => p.IsDeleted == false).CountAsync();
+            int totalPages = (int)Math.Ceiling((double)productsCount / 3);
+            if (page > totalPages) return BadRequest();
+            //wheri yuxaarda vermek lazimdir ki , isDeleted true olsa duzgun islemir ( meselen: 2 -ci seyfede 3 dene product cekmelidir
+            //, where asagida olsa hamsin cekecey ve birin gostermiyecey)
             List<Product> products = await _context.Products
+                .Where(p => p.IsDeleted == false)
+                .Skip((page - 1) * 3).Take(3)
                 .Include(p => p.Images)
                 .Include(p => p.Category)
-                .Where(p => p.IsDeleted == false)
                 .ToListAsync();
                 
-            return View(products);
+            return View(new PaginationVM<Product>
+            {
+                CurrentPage = page,
+                TotalPage = totalPages,
+                Items = products
+            });
         }
 
         [Authorize(Roles = "Admin, Moderator")]
@@ -103,10 +118,6 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                 productVM.Sizes = await GetSizesAsync();
                 return View(productVM);
             }
-
-
-         
-
 
 
             bool isExistCategory = await _context.Categories.AnyAsync(c => c.Id == productVM.CategoryId);
@@ -182,6 +193,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                 ProductTags = new List<ProductTag>(),
                 ProductSizes = new List<ProductSize>(),
                 ProductColors = new List<ProductColor>(),
+                IsAvailable = true,
                 IsDeleted = false,
 
             };
@@ -197,7 +209,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
             product.Images.Add(new ProductImage
             {
                 Type = ImageType.Hover,
-                ImageURL = await productVM.MainPhoto.CreateFileAsync(_env.WebRootPath, "uploads", "product")
+                ImageURL = await productVM.HoverPhoto.CreateFileAsync(_env.WebRootPath, "uploads", "product")
             });
 
             if (productVM.OthersPhoto is not null)
@@ -223,7 +235,7 @@ namespace Pronia.Areas.ProniaAdmin.Controllers
                     product.Images.Add(new ProductImage
                     {
                         Type = ImageType.All,
-                        ImageURL = await productVM.MainPhoto.CreateFileAsync(_env.WebRootPath, "uploads", "product")
+                        ImageURL = await photo.CreateFileAsync(_env.WebRootPath, "uploads", "product")
                     });
                 }
             }

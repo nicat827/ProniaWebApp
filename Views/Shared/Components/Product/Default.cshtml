@@ -10,10 +10,10 @@
             <div class="product-img">
                 <a asp-controller="product" asp-action="details" asp-route-id="@product.Id">
                     <img class="primary-img"
-                         src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Main)?.ImageURL"
+                         src="~/uploads/product/@product.Images.Find(img => img.Type == ImageType.Main)?.ImageURL"
                          alt="Product Images" />
                     <img class="secondary-img"
-                         src="~/assets/images/website-images//@product.Images.Find(img => img.Type == ImageType.Hover)?.ImageURL"
+                         src="~/uploads/product/@product.Images.Find(img => img.Type == ImageType.Hover)?.ImageURL"
                          alt="Product Images" />
                 </a>
                 <div class="product-add-action">

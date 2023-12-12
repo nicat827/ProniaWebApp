@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Pronia.DAL;
 using Pronia.Interfaces;
+using Pronia.Middlewares;
 using Pronia.Models;
 using Pronia.Services;
 
@@ -38,6 +39,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
 
 app.MapControllerRoute(
